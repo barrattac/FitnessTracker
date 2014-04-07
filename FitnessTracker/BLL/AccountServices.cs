@@ -81,5 +81,39 @@ namespace BLL
             UserDAO dao = new UserDAO();
             return dao.CreateUser(ConvertUser(user));
         }
+
+        public string GetErrorNewUser(UserFM user)
+        {
+            string errorMessage = "An Unknown Error Occurred.";
+            if (!ValidPasswords(user))
+            {
+                errorMessage = PasswordError(user);
+            }
+            if (!ValidEmail(user))
+            {
+                errorMessage = "Your email address must be a valid email address.  Please check your email and try again.";
+            }
+            if (!ValidNames(user))
+            {
+                errorMessage = "Your first and last name must each be between 1 and 25 characters long.  Please shorten any name too long.";
+            }
+            if (IsExistingUser(user))
+            {
+                errorMessage = "User already exist.  Please chose a different email address or sign in with your current account.";
+            }
+            return errorMessage;
+        }
+
+        private string PasswordError(UserFM user)
+        {
+            if (user.Password != null && user.ConfirmPass != null && user.Password == user.ConfirmPass)
+            {
+                return "Your password must be between 8 and 50 characters long.  Please choose a valid password.";
+            }
+            else
+            {
+                return "Your password and confirm password do not match.  Please try again.";
+            }
+        }
     }
 }
