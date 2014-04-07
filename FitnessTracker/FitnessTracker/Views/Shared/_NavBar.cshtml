@@ -1,15 +1,18 @@
 ﻿<div class="logo navBarItems">
     @*Add Logo Here*@
 </div>
-@if(Session["UserID"] == null )
+
+<div class="navBarItems" style="min-width: 80%;">
+    @if (Session["UserID"] == null)
 {
-    <div class="navBarItems">
-        @*Login Form*@
+    <div>
+        @Html.Partial("_Login")
     </div>
 }
 else
 {
-    <div class="navBarItems">
-        @*Place Links to different pages.  Ex. Stats, Meals, Workout, etc.*@
-    </div>
-}    
+        <div class="navBarItems">
+            @*Place Links to different pages.  Ex. Stats, Meals, Workout, etc.*@
+        </div>
+    }
+</div>

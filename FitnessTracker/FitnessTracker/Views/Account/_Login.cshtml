@@ -1,15 +1,16 @@
 ﻿@model BLL.UserFM
 
-@using (Html.BeginForm("Login", "Account", FormMethod.Post))
-{
-    <div class="formContents">
-        @Html.TextBoxFor(m => m.Email, new { @placeholder = "Email" })
-    </div>
-    <div class="formContents">
-        @Html.PasswordFor(m => m.Password, new { @placeholder = "Password" })
-    </div>
-    <div class="formContents">
-        <input type="submit" value="Login" />
-    </div>
-
-}
+<div style="float: right; padding: 5px;">
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+    {
+        <div>
+            @Html.TextBoxFor(m => m.Email, new { @placeholder = "Email" })
+        </div>
+        <div>
+            @Html.PasswordFor(m => m.Password, new { @placeholder = "Password" })
+        </div>
+        <div>
+            <input type="submit" value="Login" />
+        </div>
+    }
+</div>

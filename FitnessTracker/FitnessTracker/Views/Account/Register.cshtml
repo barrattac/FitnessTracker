@@ -5,53 +5,55 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Register</h2>
+<div style="margin:15px;">
+    <h2>Register</h2>
 
-@ViewBag.ErrorMessage
+    @ViewBag.ErrorMessage
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post))
-{
-    <div class="formField">
-        <div class="formContents">
-            First Name:
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+    {
+        <div class="formField">
+            <div class="formContents">
+                First Name:
+            </div>
+            <div class="formContents">
+                @Html.TextBoxFor(m => m.FirstName, new { @placeholder = "First Name" })
+            </div>
         </div>
-        <div class="formContents">
-            @Html.TextBoxFor(m => m.FirstName, new { @placeholder = "First Name" })
+        <div class="formField">
+            <div class="formContents">
+                Last Name:
+            </div>
+            <div class="formContents">
+                @Html.TextBoxFor(m => m.LastName, new { @placeholder = "Last Name" })
+            </div>
         </div>
-    </div>
-    <div class="formField">
-        <div class="formContents">
-            Last Name:
+        <div class="formField">
+            <div class="formContents">
+                Email:
+            </div>
+            <div class="formContents">
+                @Html.TextBoxFor(m => m.Email, new { @placeholder = "Email" })
+            </div>
         </div>
-        <div class="formContents">
-            @Html.TextBoxFor(m => m.LastName, new { @placeholder = "Last Name" })
+        <div class="formField">
+            <div class="formContents">
+                Password:
+            </div>
+            <div class="formContents">
+                @Html.PasswordFor(m => m.Password, new { @placeholder = "Password" })
+            </div>
         </div>
-    </div>
-    <div class="formField">
-        <div class="formContents">
-            Email:
+        <div class="formField">
+            <div class="formContents">
+                Confirm Password:
+            </div>
+            <div class="formContents">
+                @Html.PasswordFor(m => m.ConfirmPass, new { @placeholder = "Confirm Password" })
+            </div>
         </div>
-        <div class="formContents">
-            @Html.TextBoxFor(m => m.Email, new { @placeholder = "Email" })
+        <div class="formField">
+            <input type="submit" value="Register" />
         </div>
-    </div>
-    <div class="formField">
-        <div class="formContents">
-            Password:
-        </div>
-        <div class="formContents">
-            @Html.PasswordFor(m => m.Password, new { @placeholder = "Password" })
-        </div>
-    </div>
-    <div class="formField">
-        <div class="formContents">
-            Confirm Password:
-        </div>
-        <div class="formContents">
-            @Html.PasswordFor(m => m.ConfirmPass, new { @placeholder = "Confirm Password" })
-        </div>
-    </div>
-    <div class="formField">
-        <input type="submit" value="Register" />
-    </div>
-}
+    }
+</div>
