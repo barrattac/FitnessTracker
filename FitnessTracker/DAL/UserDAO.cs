@@ -39,5 +39,36 @@ namespace DAL
                 }
             }
         }
+
+        public List<User> GetUser()
+        {
+            return ReadUsers("GetAllUsers", null);
+        }
+
+        public User GetUser(User user)
+        {
+            SqlParameter[] parameters = new SqlParameter[]{
+                new SqlParameter("@Email", user.Email)
+            };
+            try
+            {
+                return ReadUsers("GetUser", parameters)[0];
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public int CreateUser(User user)
+        {
+            SqlParameter[] parameters = new SqlParameter[]{
+                new SqlParameter("@Email", user.Email),
+                new SqlParameter("@Password", user.Password),
+                new SqlParameter("@FirstName", user.FirstName),
+                new SqlParameter("@LastName", user.LastName)
+            };
+            return Write("CreateUser", parameters);
+        }
     }
 }
