@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class Class1
+    public class UserFM
     {
+        public int ID { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public string ConfirmPass { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        public UserFM()
+        {
+
+        }
     }
 }

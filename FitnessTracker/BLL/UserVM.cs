@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    class UserVM
+    public class UserVM
     {
+        public int ID { get; set; }
+        public string Email { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        public UserVM()
+        {
+
+        }
     }
 }
