@@ -8,8 +8,12 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    @RenderBody()
-
+    <div style="height: 25px;">
+        @Html.Partial("_NavBar")
+    </div>
+    <div class="body">
+        @RenderBody()
+    </div>
     @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
 </body>

@@ -1,0 +1,15 @@
+﻿<div class="logo navBar">
+    @*Add Logo Here*@
+</div>
+@if(Session["UserID"] == null )
+{
+    <div class="navBar">
+        @*Login Form*@
+    </div>
+}
+else
+{
+    <div class="navBar">
+        @*Place Links to different pages.  Ex. Stats, Meals, Workout, etc.*@
+    </div>
+}    
