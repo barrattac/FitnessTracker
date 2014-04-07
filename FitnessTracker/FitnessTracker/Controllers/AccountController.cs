@@ -29,5 +29,17 @@ namespace FitnessTracker.Controllers
                 return View();
             }
         }
+
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Login(UserFM user)
+        {
+            AccountServices log = new AccountServices();
+            return View();
+        }
     }
 }

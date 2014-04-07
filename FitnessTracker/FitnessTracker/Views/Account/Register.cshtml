@@ -9,14 +9,14 @@
 
 @ViewBag.ErrorMessage
 
-@using(Html.BeginForm("Register", "Account", FormMethod.Post))
+@using (Html.BeginForm("Register", "Account", FormMethod.Post))
 {
     <div class="formField">
         <div class="formContents">
             First Name:
         </div>
         <div class="formContents">
-            @Html.TextBoxFor(m => m.FirstName, new { @placeholder="First Name"})
+            @Html.TextBoxFor(m => m.FirstName, new { @placeholder = "First Name" })
         </div>
     </div>
     <div class="formField">
@@ -24,7 +24,7 @@
             Last Name:
         </div>
         <div class="formContents">
-            @Html.TextBoxFor(m => m.LastName, new { @placeholder="Last Name"})
+            @Html.TextBoxFor(m => m.LastName, new { @placeholder = "Last Name" })
         </div>
     </div>
     <div class="formField">
@@ -32,7 +32,7 @@
             Email:
         </div>
         <div class="formContents">
-            @Html.TextBoxFor(m => m.Email, new { @placeholder="Email"})
+            @Html.TextBoxFor(m => m.Email, new { @placeholder = "Email" })
         </div>
     </div>
     <div class="formField">
@@ -40,7 +40,7 @@
             Password:
         </div>
         <div class="formContents">
-            @Html.PasswordFor(m => m.Password, new { @placeholder="Password"})
+            @Html.PasswordFor(m => m.Password, new { @placeholder = "Password" })
         </div>
     </div>
     <div class="formField">
@@ -48,7 +48,10 @@
             Confirm Password:
         </div>
         <div class="formContents">
-            @Html.PasswordFor(m => m.ConfirmPass, new { @placeholder="Confirm Password"})
+            @Html.PasswordFor(m => m.ConfirmPass, new { @placeholder = "Confirm Password" })
         </div>
+    </div>
+    <div class="formField">
+        <input type="submit" value="Register" />
     </div>
 }
