@@ -115,5 +115,11 @@ namespace BLL
                 return "Your password and confirm password do not match.  Please try again.";
             }
         }
+
+        public int Login(UserFM user)
+        {
+            UserDAO dao = new UserDAO();
+            return dao.Login(ConvertUser(user));
+        }
     }
 }

@@ -21,7 +21,7 @@ namespace FitnessTracker.Controllers
             if (log.ValidateNewUser(user))
             {
                 Session["UserID"] = log.CreateUser(user);
-                return View("Index", "Home", new { });
+                return RedirectToAction("Index", "Home", new { });
             }
             else
             {
@@ -39,7 +39,20 @@ namespace FitnessTracker.Controllers
         public ActionResult Login(UserFM user)
         {
             AccountServices log = new AccountServices();
-            return View();
+            Session["UserID"] = log.Login(user);
+            if (Convert.ToInt32(Session["UserID"]) == 0)
+            {
+                Session["UserID"] = null;
+                ViewBag.ErrorMessage = "Invalid credentials.";
+                return View("Register");
+            }
+            return RedirectToAction("Index", "Home", new { });
+        }
+
+        public ActionResult Logout()
+        {
+            Session["UserID"] = null;
+            return RedirectToAction("Register");
         }
     }
 }

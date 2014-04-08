@@ -70,5 +70,14 @@ namespace DAL
             };
             return Write("CreateUser", parameters);
         }
+
+        public int Login(User user)
+        {
+            SqlParameter[] parameters = new SqlParameter[]{
+                new SqlParameter("@Email", user.Email),
+                new SqlParameter("@Password", user.Password)
+            };
+            return Write("Login", parameters);
+        }
     }
 }

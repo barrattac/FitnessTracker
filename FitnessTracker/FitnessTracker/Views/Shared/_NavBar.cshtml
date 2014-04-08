@@ -4,15 +4,18 @@
 
 <div class="navBarItems" style="min-width: 80%;">
     @if (Session["UserID"] == null)
-{
-    <div>
-        @Html.Partial("_Login")
-    </div>
-}
-else
-{
+    {
+        <div>
+            @Html.Partial("_Login")
+        </div>
+    }
+    else
+    {
         <div class="navBarItems">
             @*Place Links to different pages.  Ex. Stats, Meals, Workout, etc.*@
+            <div>
+                @Html.ActionLink("Logout", "Account", new { });
+            </div>
         </div>
     }
 </div>
