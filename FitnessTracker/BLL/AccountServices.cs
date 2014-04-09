@@ -61,6 +61,7 @@ namespace BLL
         {
             User user = new User();
             user.ID = fm.ID;
+            user.Email = fm.Email.ToLower();
             user.Password = fm.Password;
             user.FirstName = fm.FirstName;
             user.LastName = fm.LastName;
@@ -71,6 +72,7 @@ namespace BLL
         {
             UserVM vm = new UserVM();
             vm.ID = user.ID;
+            vm.Email = user.Email;
             vm.FirstName = user.FirstName;
             vm.LastName = user.LastName;
             return vm;

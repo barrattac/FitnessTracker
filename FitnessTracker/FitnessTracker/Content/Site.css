@@ -32,7 +32,7 @@ body {
     float: left;
     background-image: url("/Images/logo.jpg");
     background-size: contain;
-    min-height:100%;
+    min-height: 100%;
     min-width: 20%;
     background-repeat: no-repeat;
 }
@@ -40,6 +40,7 @@ body {
 .navBarItems {
     display: inline;
     float: left;
+    min-width: 80%;
 }
 
 .body {
@@ -55,13 +56,13 @@ body {
     border: 0px;
 }
 
-.formContents{
+.formContents {
     display: inline;
     float: left;
     width: 100px;
     margin: 5px;
 }
 
-.formField{
+.formField {
     clear: both;
 }

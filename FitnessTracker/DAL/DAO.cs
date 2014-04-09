@@ -9,7 +9,7 @@ namespace DAL
 {
     public class DAO
     {
-        public string connectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=FitnessTracker;Integrated Security=SSPI;";
+        public string connectionString = "Data Source=WUSJLLPK00KFRC;Initial Catalog=FitnessTracker;Integrated Security=True";
         public int Write(string statement, SqlParameter[] parameters)
         {
             using (SqlConnection connection = new SqlConnection(@connectionString))
