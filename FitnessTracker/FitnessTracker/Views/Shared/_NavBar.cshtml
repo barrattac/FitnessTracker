@@ -6,7 +6,7 @@
     @if (Session["UserID"] == null)
     {
         <div style="float: right; padding: 5px;">
-            @Html.Partial("_Login")
+            @Html.Action("Login", "Account", new { })
         </div>
     }
     else

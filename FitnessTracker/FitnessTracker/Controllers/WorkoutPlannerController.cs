@@ -11,10 +11,10 @@ namespace FitnessTracker.Controllers
     {
         public ActionResult Index()
         {
-            if (Session["UserID"] == null)
-            {
-                return RedirectToAction("Register", "Account", new { });
-            }
+            //if (Session["UserID"] == null)
+            //{
+            //    return RedirectToAction("Register", "Account", new { });
+            //}
             PlanningServices log = new PlanningServices();
             return View(log.GetFirstDay());
         }

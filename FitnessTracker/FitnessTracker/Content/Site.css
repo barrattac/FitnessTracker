@@ -66,3 +66,21 @@ body {
 .formField {
     clear: both;
 }
+
+table {
+    min-width: 100%;
+    min-height: 100%;
+}
+
+td {
+    width: 14%;
+    height: 15%;
+    min-width: 14%;
+    min-height: 15%;
+    max-width: 14%;
+    max-height: 15%;
+    border: 1px solid black;
+    background-color: black;
+    opacity: .7;
+    text-align: start;
+}

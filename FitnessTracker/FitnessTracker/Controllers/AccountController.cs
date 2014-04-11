@@ -33,7 +33,7 @@ namespace FitnessTracker.Controllers
         [HttpGet]
         public ActionResult Login()
         {
-            return View();
+            return PartialView("_Login");
         }
         [HttpPost]
         public ActionResult Login(UserFM user)
