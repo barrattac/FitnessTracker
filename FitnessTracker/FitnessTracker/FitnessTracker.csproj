@@ -225,6 +225,7 @@
     <Content Include="Views\Account\_Login.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\WorkoutPlanner\Index.cshtml" />
+    <Content Include="Views\WorkoutPlanner\DayPlanner.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

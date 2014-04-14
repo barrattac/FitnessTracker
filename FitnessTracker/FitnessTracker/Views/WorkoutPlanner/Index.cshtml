@@ -1,4 +1,4 @@
-﻿@model DateTime
+﻿@model List<List<BLL.WorkoutVM>>
 
 @{
     ViewBag.Title = "Index";
@@ -14,11 +14,17 @@
         </tr>
         <tr>
             <th colspan="7">
-                @Model.ToString("y")
+                @Model[8][0].PlanDate.ToString("y")
             </th>
         </tr>
         <tr>
-            <th>Sunday</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th><th>Saturday</th>
+            <th>Sunday</th>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+            <th>Saturday</th>
         </tr>
     </thead>
     <tbody>
@@ -27,7 +33,19 @@
             <tr>
                 @for (int j = 0; j < 7; j++)
                 {
-                    <td>@Model.AddDays(i*7 + j).Day</td>
+                    <td style="overflow: hidden;">
+                        <p>@Html.ActionLink(Model[i * 7 + j][0].PlanDate.Day.ToString(), "DayPlanner", Model[i * 7 + j][0].PlanDate)</p>
+                        @if (Model[i * 7 + j][0].Exercise != null)
+                        {
+                            for (int k = 0; k < 5 && k < Model[i * 7 + j].Count; i++)
+                            {
+                                if (Model[i * 7 + j][k].Exercise == null)
+                                {
+                                    <p>@Model[i * 7 + j][k].Exercise @Model[i * 7 + j][k].NumberSets sets of @Model[i * 7 + j][k].Amount</p>
+                                }
+                            }
+                        }
+                    </td>
                 }
             </tr>
         }

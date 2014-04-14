@@ -79,5 +79,20 @@ namespace DAL
             };
             return Write("Login", parameters);
         }
+
+        public User GetUserByID(int userID)
+        {
+            SqlParameter[] parameters = new SqlParameter[]{
+                new SqlParameter("@ID", userID)
+            };
+            try
+            {
+                return ReadUsers("GetUserByID", parameters)[0];
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }

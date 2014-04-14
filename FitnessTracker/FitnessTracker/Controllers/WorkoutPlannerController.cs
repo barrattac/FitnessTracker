@@ -11,13 +11,22 @@ namespace FitnessTracker.Controllers
     {
         public ActionResult Index()
         {
-            //if (Session["UserID"] == null)
-            //{
-            //    return RedirectToAction("Register", "Account", new { });
-            //}
+            if (Session["UserID"] == null)
+            {
+                return RedirectToAction("Register", "Account", new { });
+            }
             PlanningServices log = new PlanningServices();
-            return View(log.GetFirstDay());
+            return View(log.GetWorkoutPlan(Convert.ToInt32(Session["UserID"])));
         }
 
+        public ActionResult DayPlanner(DateTime date)
+        {
+            if (Session["UserID"] == null)
+            {
+                return RedirectToAction("Register", "Account", new { });
+            }
+            PlanningServices log = new PlanningServices();
+            return View(log.GetWorkoutPlan(Convert.ToInt32(Session["UserID"]), date));
+        }
     }
 }

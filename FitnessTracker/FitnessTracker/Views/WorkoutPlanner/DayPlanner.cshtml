@@ -1,0 +1,22 @@
+﻿@model List<BLL.WorkoutVM>
+
+@{
+    ViewBag.Title = "Planner";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model[0].PlanDate.ToString("D")</h2>
+
+@if (Model == null || Model[0].Exercise == null)
+{
+    <p>You currently do not have any workouts scheduled for @Model[0].PlanDate.ToString("D")</p>
+}
+else
+{
+    foreach (BLL.WorkoutVM workout in Model)
+    {
+        <p>@workout.Exercise, @workout.NumberSets sets of @workout.Amount</p>
+    }
+}
+
+@Html.ActionLink("Add Workout", "AddWorkout", Model[0].PlanDate)

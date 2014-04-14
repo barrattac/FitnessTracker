@@ -9,9 +9,11 @@ namespace DAL
 {
     public class DAO
     {
-        public string connectionString = "Data Source=WUSJLLPK00KFRC;Initial Catalog=FitnessTracker;Integrated Security=True";
+        //public string connectionString = "Data Source=WUSJLLPK00KFRC;Initial Catalog=FitnessTracker;Integrated Security=True";
+        public string connectionString = "Data Source=GDC-007\\SQLEXPRESS;Initial Catalog=FitnessTracker;Integrated Security=True";
         public int Write(string statement, SqlParameter[] parameters)
         {
+
             using (SqlConnection connection = new SqlConnection(@connectionString))
             {
                 connection.Open();
