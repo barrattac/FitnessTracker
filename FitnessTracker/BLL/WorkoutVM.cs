@@ -19,7 +19,7 @@ namespace BLL
         public WorkoutVM(Workout workout)
         {
             this.ID = workout.ID;
-            this.User = new UserVM(workout.ID);
+            this.User = new UserVM(workout.UserID);
             this.Exercise = new ExerciseVM(workout.ExerciseID);
             this.NumberSets = workout.NumberSets;
             this.Amount = workout.Amount;

@@ -15,7 +15,7 @@ else
 {
     foreach (BLL.WorkoutVM workout in Model)
     {
-        <p>@workout.Exercise, @workout.NumberSets sets of @workout.Amount</p>
+        <p>@workout.Exercise.ExerciseName, @workout.NumberSets sets of @workout.Amount</p>
     }
 }
 

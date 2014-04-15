@@ -59,5 +59,13 @@ namespace DAL
         {
             return ReadExercises("GetAllExercises", null);
         }
+
+        public int AddExercise(string exerciseName)
+        {
+            SqlParameter[] parameters = new SqlParameter[]{
+                new SqlParameter("@ExerciseName", exerciseName)
+            };
+            return Write("AddExercise", parameters);
+        }
     }
 }

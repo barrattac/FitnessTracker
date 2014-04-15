@@ -55,5 +55,17 @@ namespace DAL
                 return null;
             }
         }
+
+        public void AddWorkout(Workout workout)
+        {
+            SqlParameter[] parameters = new SqlParameter[]{
+                new SqlParameter("@UserID", workout.UserID), 
+                new SqlParameter("@Date", workout.PlanDate),
+                new SqlParameter("@ExerciseID", workout.ExerciseID), 
+                new SqlParameter("@NumberSets", workout.NumberSets),
+                new SqlParameter("@Amount", workout.Amount)
+            };
+            Write("AddWorkout", parameters);
+        }
     }
 }

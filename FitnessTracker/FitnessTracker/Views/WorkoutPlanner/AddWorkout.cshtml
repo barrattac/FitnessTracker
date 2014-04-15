@@ -19,13 +19,14 @@
             @if (Model.Exercises != null)
             {
                 <select name="Exercise">
+                    <option id="NewExercise">New Exercise</option>
                     @for (int i = 0; i < Model.Exercises.Count; i++)
                     {
                         <option value=@Model.Exercises[i].ID>@Model.Exercises[i].ExerciseName</option>
                     }
                 </select>
             }
-            @Html.TextBoxFor(m => m.Exercise, new { @placeholder = "New Exercise" })
+            @Html.TextBoxFor(m => m.NewExercise, new { @placeholder = "New Exercise" })
         </div>
     </div>
     <div class="formField">
@@ -62,7 +63,7 @@
         </div>
     </div>
     <div class="formField">
-        <input type="submit" value="Add Working" />
+        <input type="submit" value="Add Working"/>
     </div>
 }
 

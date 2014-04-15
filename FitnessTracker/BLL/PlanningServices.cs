@@ -32,7 +32,7 @@ namespace BLL
             WorkoutDAO dao = new WorkoutDAO();
             List<WorkoutVM> vm = new List<WorkoutVM>();
             List<Workout> workouts = dao.GetWorkouts(userID, date);
-            if (workouts != null)
+            if (workouts != null && workouts.Count > 0)
             {
                 for (int i = 0; i < workouts.Count; i++)
                 {
@@ -68,6 +68,50 @@ namespace BLL
                 sun = sun.AddDays(-7);
             }
             return sun;
+        }
+
+        public void AddWorkout(WorkoutFM fm)
+        {
+            WorkoutDAO dao = new WorkoutDAO();
+            Workout workout = ConvertWorkout(fm);
+            dao.AddWorkout(workout);
+            if (fm.ReoccurringWeekly)
+            {
+                int re = fm.NumberReoccurring;
+                while (re > 0)
+                {
+                    workout.PlanDate = workout.PlanDate.AddDays(7);
+                    dao.AddWorkout(workout);
+                    re--;
+                }
+                fm.ReoccurringWeekly = false;
+                workout.PlanDate = fm.PlanDate;
+            }
+            while (fm.NumberReoccurring > 0 && fm.ReoccurringDaily)
+            {
+                workout.PlanDate = workout.PlanDate.AddDays(1);
+                dao.AddWorkout(workout);
+                fm.NumberReoccurring--;
+            }
+        }
+
+        private Workout ConvertWorkout(WorkoutFM fm)
+        {
+            Workout workout = new Workout();
+            try
+            {
+                workout.ExerciseID = Convert.ToInt32(fm.Exercise);
+            }
+            catch
+            {
+                ExerciseDAO dao = new ExerciseDAO();
+                workout.ExerciseID = dao.AddExercise(fm.NewExercise);
+            }
+            workout.UserID = fm.UserID;
+            workout.Amount = fm.Amount;
+            workout.NumberSets = fm.NumberSets;
+            workout.PlanDate = fm.PlanDate;
+            return workout;
         }
     }
 }

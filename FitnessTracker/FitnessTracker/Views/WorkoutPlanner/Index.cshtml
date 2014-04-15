@@ -37,11 +37,11 @@
                         <p>@Html.ActionLink(Model[i * 7 + j][0].PlanDate.Day.ToString(), "DayPlanner", Model[i * 7 + j][0].PlanDate)</p>
                         @if (Model[i * 7 + j][0].Exercise != null)
                         {
-                            for (int k = 0; k < 5 && k < Model[i * 7 + j].Count; i++)
+                            for (int k = 0; k < 5 && k < Model[i * 7 + j].Count; k++)
                             {
-                                if (Model[i * 7 + j][k].Exercise == null)
+                                if (Model[i * 7 + j][k].Exercise != null)
                                 {
-                                    <p>@Model[i * 7 + j][k].Exercise @Model[i * 7 + j][k].NumberSets sets of @Model[i * 7 + j][k].Amount</p>
+                                    <p>@Model[i * 7 + j][k].Exercise.ExerciseName @Model[i * 7 + j][k].NumberSets sets of @Model[i * 7 + j][k].Amount</p>
                                 }
                             }
                         }

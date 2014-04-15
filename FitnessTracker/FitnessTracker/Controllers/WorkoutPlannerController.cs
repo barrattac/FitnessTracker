@@ -40,15 +40,16 @@ namespace FitnessTracker.Controllers
             return View(new WorkoutFM(Convert.ToInt32(Session["UserID"]), date));
         }
         [HttpPost]
-        public ActionResult AddWorkout(WorkoutFM workout)
+        public ActionResult AddWorkout(WorkoutFM workout, FormCollection collection)
         {
             if (Session["UserID"] == null)
             {
                 return RedirectToAction("Register", "Account", new { });
             }
             PlanningServices log = new PlanningServices();
-            //log.AddWorkout(workout);
-            return View("DayPlanner", workout.PlanDate);
+            workout.UserID = Convert.ToInt32(Session["UserID"]);
+            log.AddWorkout(workout);
+            return RedirectToAction("DayPlanner", workout.PlanDate);
         }
     }
 }
