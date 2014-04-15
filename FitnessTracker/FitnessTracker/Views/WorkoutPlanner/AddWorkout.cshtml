@@ -7,4 +7,64 @@
 
 <h2>Add Workout to @Model.PlanDate.ToString("D")</h2>
 
+@using (Html.BeginForm("AddWorkout", "WorkoutPlanner", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.PlanDate)
+    <div class="formField">
+        <div class="formContents">
+            Exercise:
+        </div>
+        <div class="formContents">
+            @*Drop Down List*@
+            @if (Model.Exercises != null)
+            {
+                <select name="Exercise">
+                    @for (int i = 0; i < Model.Exercises.Count; i++)
+                    {
+                        <option value=@Model.Exercises[i].ID>@Model.Exercises[i].ExerciseName</option>
+                    }
+                </select>
+            }
+            @Html.TextBoxFor(m => m.Exercise, new { @placeholder = "New Exercise" })
+        </div>
+    </div>
+    <div class="formField">
+        <div class="formContents">
+            Sets
+        </div>
+        <div class="formContents">
+            @Html.TextBoxFor(m => m.NumberSets, new { @placeholder = "Number of Sets" })
+        </div>
+    </div>
+    <div class="formField">
+        <div class="formContents">
+            Repetitions
+        </div>
+        <div class="formContents">
+            @Html.TextBoxFor(m => m.Amount, new { @placeholder = "Number of Repetitions" })
+        </div>
+    </div>
+    <div class="formField">
+        <div class="formContents">
+            Reoccurring
+        </div>
+        <div class="formContents">
+            @Html.CheckBoxFor(m => m.ReoccurringDaily, new { @checked = "checked" })Daily<br>
+            @Html.CheckBoxFor(m => m.ReoccurringWeekly, new { @checked = "checked" })Weekly<br>
+        </div>
+    </div>
+    <div class="formField">
+        <div class="formContents">
+            Reoccurring
+        </div>
+        <div class="formContents">
+            @Html.TextBoxFor(m => m.NumberReoccurring, new { @placeholder = "Number of Times" })
+        </div>
+    </div>
+    <div class="formField">
+        <input type="submit" value="Add Working" />
+    </div>
+}
+
+
 <p>Need to add form for adding a workout.</p>

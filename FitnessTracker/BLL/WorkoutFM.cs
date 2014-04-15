@@ -13,7 +13,8 @@ namespace BLL
 
         public int ID { get; set; }
         public int UserID { get; set; }
-        public List<ExerciseFM> Exercise { get; set; }
+        public List<ExerciseFM> Exercises { get; set; }
+        public string Exercise { get; set; }
         public int NumberSets { get; set; }
         public int Amount { get; set; }
         public DateTime PlanDate { get; set; }
@@ -29,7 +30,7 @@ namespace BLL
             List<Exercise> exercise = dao.GetExercises();
             for(int i = 0; i < exercise.Count; i++)
             {
-                this.Exercise.Add(new ExerciseFM(exercise[i]));
+                this.Exercises.Add(new ExerciseFM(exercise[i]));
             }
         }
 
