@@ -51,5 +51,15 @@ namespace FitnessTracker.Controllers
             log.AddWorkout(workout);
             return RedirectToAction("DayPlanner", workout.PlanDate);
         }
+
+        public ActionResult ChangeMonth(DateTime date)
+        {
+            if (Session["UserID"] == null)
+            {
+                return RedirectToAction("Register", "Account", new { });
+            }
+            PlanningServices log = new PlanningServices();
+            return View("Index", log.GetWorkoutPlans(Convert.ToInt32(Session["UserID"]), date));
+        }
     }
 }

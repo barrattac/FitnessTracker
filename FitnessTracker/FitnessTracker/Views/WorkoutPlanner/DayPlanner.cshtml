@@ -18,5 +18,9 @@ else
         <p>@workout.Exercise.ExerciseName, @workout.NumberSets sets of @workout.Amount</p>
     }
 }
-
-@Html.ActionLink("Add Workout", "AddWorkout", Model[0].PlanDate)
+<div>
+    @Html.ActionLink("Add Workout", "AddWorkout", Model[0].PlanDate)
+</div>
+<div>
+    @Html.ActionLink("Back to Month", "ChangeMonth", Model[0].PlanDate)
+</div>

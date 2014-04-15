@@ -12,7 +12,7 @@ namespace BLL
         public List<List<WorkoutVM>> GetWorkoutPlan(int userID)
         {
             List<List<WorkoutVM>> workouts = new List<List<WorkoutVM>>();
-            List<DateTime> dates = GetCalendar();
+            List<DateTime> dates = GetCalendar(DateTime.Now);
             for (int i = 0; i < 35; i++)
             {
                 List<WorkoutVM> workout = GetWorkoutPlan(userID, dates[i].Date);
@@ -25,6 +25,25 @@ namespace BLL
                 workouts.Add(workout);
             }
             return workouts;
+        }
+
+        public List<List<WorkoutVM>> GetWorkoutPlans(int userID, DateTime date)
+        {
+            List<List<WorkoutVM>> workouts = new List<List<WorkoutVM>>();
+            List<DateTime> dates = GetCalendar(date);
+            for (int i = 0; i < 35; i++)
+            {
+                List<WorkoutVM> workout = GetWorkoutPlan(userID, dates[i].Date);
+                if (workout == null || workout.Count == 0)
+                {
+                    WorkoutVM vm = new WorkoutVM();
+                    vm.PlanDate = dates[i].Date;
+                    workout.Add(vm);
+                }
+                workouts.Add(workout);
+            }
+            return workouts;
+
         }
 
         public List<WorkoutVM> GetWorkoutPlan(int userID, DateTime date)
@@ -48,10 +67,10 @@ namespace BLL
             return vm;
         }
 
-        private List<DateTime> GetCalendar()
+        private List<DateTime> GetCalendar(DateTime date)
         {
             List<DateTime> dates = new List<DateTime>();
-            DateTime sun = GetFirstDay();
+            DateTime sun = GetFirstDay(date);
             for (int i = 0; i < 35; i++)
             {
                 dates.Add(sun.AddDays(i));
@@ -59,11 +78,11 @@ namespace BLL
             return dates;
         }
 
-        private DateTime GetFirstDay()
+        private DateTime GetFirstDay(DateTime date)
         {
-            DateTime sun = DateTime.Now;
+            DateTime sun = date;
             sun = sun.AddDays(-Convert.ToInt32(sun.DayOfWeek));
-            while (sun.Month == DateTime.Now.Month && sun.Day != 1)
+            while (sun.Month == date.Month && sun.Day != 1)
             {
                 sun = sun.AddDays(-7);
             }
