@@ -54,5 +54,10 @@ namespace DAL
                 return null;
             }
         }
+
+        public List<Exercise> GetExercises()
+        {
+            return ReadExercises("GetAllExercises", null);
+        }
     }
 }

@@ -9,8 +9,6 @@ namespace BLL
 {
     public class ExerciseVM
     {
-        private int p;
-
         public int ID { get; set; }
         public string ExerciseName { get; set; }
 
