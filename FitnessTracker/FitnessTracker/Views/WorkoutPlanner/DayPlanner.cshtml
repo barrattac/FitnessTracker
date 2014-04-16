@@ -13,9 +13,13 @@
 }
 else
 {
-    foreach (BLL.WorkoutVM workout in Model)
+    using (Html.BeginForm("MarkComplete", "WorkoutPlanner", FormMethod.Post))
     {
-        <p>@workout.Exercise.ExerciseName, @workout.NumberSets sets of @workout.Amount @Html.ActionLink("X", "DeleteWorkout", workout, new { @class="red" })</p>
+        for (int i = 0; i < Model.Count; i++)
+        {
+            <p><input type="checkbox" name="Complete" value=@Model[i].Complete /> @Model[i].Exercise.ExerciseName, @Model[i].NumberSets sets of @Model[i].Amount @Html.ActionLink("X", "DeleteWorkout", @Model[i], new { @class = "red", @onclick="return confirm('Are you sure you want to delete this exercise from your workout?')"})</p>
+        }
+        <input type="submit" value="Mark Completed Exercises" />
     }
 }
 <div>
