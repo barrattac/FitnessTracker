@@ -15,6 +15,7 @@ namespace DAL
         public int NumberSets { get; set; }
         public int Amount { get; set; }
         public DateTime PlanDate { get; set; }
+        public bool Complete { get; set; }
 
         public Workout(SqlDataReader data)
         {
@@ -24,6 +25,7 @@ namespace DAL
             this.NumberSets = Convert.ToInt32(data["NumberSets"]);
             this.Amount = Convert.ToInt32(data["Amount"]);
             this.PlanDate = Convert.ToDateTime(data["PlanDate"]);
+            this.Complete = Convert.ToBoolean(data["Complete"]);
         }
 
         public Workout()

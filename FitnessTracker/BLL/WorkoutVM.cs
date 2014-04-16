@@ -15,6 +15,7 @@ namespace BLL
         public int NumberSets { get; set; }
         public int Amount { get; set; }
         public DateTime PlanDate { get; set; }
+        public bool Complete { get; set; }
 
         public WorkoutVM(Workout workout)
         {
@@ -24,6 +25,7 @@ namespace BLL
             this.NumberSets = workout.NumberSets;
             this.Amount = workout.Amount;
             this.PlanDate = workout.PlanDate;
+            this.Complete = workout.Complete;
         }
 
         public WorkoutVM()

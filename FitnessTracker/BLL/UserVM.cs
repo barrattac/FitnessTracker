@@ -9,8 +9,6 @@ namespace BLL
 {
     public class UserVM
     {
-        private int p;
-
         public int ID { get; set; }
         public string Email { get; set; }
         public string FirstName { get; set; }
@@ -38,6 +36,5 @@ namespace BLL
         {
 
         }
-
     }
 }

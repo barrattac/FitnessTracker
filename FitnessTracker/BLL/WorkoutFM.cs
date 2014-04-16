@@ -22,6 +22,7 @@ namespace BLL
         public bool ReoccurringDaily { get; set; }
         public bool ReoccurringWeekly { get; set; }
         public int NumberReoccurring { get; set; }
+        public bool Complete { get; set; }
 
         public WorkoutFM(int userID, DateTime date)
         {
@@ -37,6 +38,7 @@ namespace BLL
                     this.Exercises.Add(new ExerciseFM(exercise[i]));
                 }
             }
+            this.Complete = false;
         }
 
         public WorkoutFM()

@@ -132,5 +132,11 @@ namespace BLL
             workout.PlanDate = fm.PlanDate;
             return workout;
         }
+
+        public void DeleteWorkout(int workoutID)
+        {
+            WorkoutDAO dao = new WorkoutDAO();
+            dao.DeleteWorkout(workoutID);
+        }
     }
 }
