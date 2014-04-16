@@ -75,5 +75,14 @@ namespace DAL
             };
             Write("DeleteWorkout", parameters);
         }
+
+        public void MarkComplete(Workout workout)
+        {
+            SqlParameter[] parameters = new SqlParameter[]{
+                new SqlParameter("@ID", workout.ID), 
+                new SqlParameter("@Complete", workout.Complete)
+            };
+            Write("MarkWorkout", parameters);
+        }
     }
 }

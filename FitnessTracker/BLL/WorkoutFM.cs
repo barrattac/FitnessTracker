@@ -9,8 +9,6 @@ namespace BLL
 {
     public class WorkoutFM
     {
-        private Workout workout;
-
         public int ID { get; set; }
         public int UserID { get; set; }
         public List<ExerciseFM> Exercises { get; set; }
@@ -23,6 +21,12 @@ namespace BLL
         public bool ReoccurringWeekly { get; set; }
         public int NumberReoccurring { get; set; }
         public bool Complete { get; set; }
+
+        public WorkoutFM(WorkoutVM vm)
+        {
+            this.ID = vm.ID;
+            this.Complete = vm.Complete;
+        }
 
         public WorkoutFM(int userID, DateTime date)
         {

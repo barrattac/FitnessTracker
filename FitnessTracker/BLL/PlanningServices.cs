@@ -114,9 +114,10 @@ namespace BLL
             }
         }
 
-        private Workout ConvertWorkout(WorkoutFM fm)
+        internal Workout ConvertWorkout(WorkoutFM fm)
         {
             Workout workout = new Workout();
+            workout.ID = fm.ID;
             workout.ExerciseID = GetWorkoutID(fm);
             workout.UserID = fm.UserID;
             workout.Amount = fm.Amount;

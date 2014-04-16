@@ -68,5 +68,12 @@ namespace FitnessTracker.Controllers
             log.DeleteWorkout(workout.ID);
             return RedirectToAction("DayPlanner", workout.PlanDate);
         }
+
+        public ActionResult MarkComplete(List<WorkoutVM> workouts)
+        {
+            WorkoutTrackingStatus log = new WorkoutTrackingStatus();
+            log.UpdateWorkouts(workouts);
+            return RedirectToAction("Index");
+        }
     }
 }
