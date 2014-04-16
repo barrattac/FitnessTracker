@@ -43,7 +43,7 @@
             <tr>
                 @for (int j = 0; j < 7; j++)
                 {
-                    <td style="overflow: hidden;">
+                    <td class="day">
                         <p>@Html.ActionLink(Model[i * 7 + j][0].PlanDate.Day.ToString(), "DayPlanner", Model[i * 7 + j][0].PlanDate)</p>
                         @if (Model[i * 7 + j][0].Exercise != null)
                         {

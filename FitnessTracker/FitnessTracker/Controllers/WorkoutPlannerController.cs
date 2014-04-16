@@ -64,6 +64,10 @@ namespace FitnessTracker.Controllers
 
         public ActionResult DeleteWorkout(WorkoutVM workout)
         {
+            if (Session["UserID"] == null)
+            {
+                return RedirectToAction("Register", "Account", new { });
+            }
             PlanningServices log = new PlanningServices();
             log.DeleteWorkout(workout.ID);
             return RedirectToAction("DayPlanner", workout.PlanDate);
@@ -71,6 +75,10 @@ namespace FitnessTracker.Controllers
 
         public ActionResult MarkComplete(List<WorkoutVM> workouts)
         {
+            if (Session["UserID"] == null)
+            {
+                return RedirectToAction("Register", "Account", new { });
+            }
             WorkoutTrackingStatus log = new WorkoutTrackingStatus();
             log.UpdateWorkouts(workouts);
             return RedirectToAction("Index");
