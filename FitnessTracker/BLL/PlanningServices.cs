@@ -117,20 +117,39 @@ namespace BLL
         private Workout ConvertWorkout(WorkoutFM fm)
         {
             Workout workout = new Workout();
-            try
-            {
-                workout.ExerciseID = Convert.ToInt32(fm.Exercise);
-            }
-            catch
-            {
-                ExerciseDAO dao = new ExerciseDAO();
-                workout.ExerciseID = dao.AddExercise(fm.NewExercise);
-            }
+            workout.ExerciseID = GetWorkoutID(fm);
             workout.UserID = fm.UserID;
             workout.Amount = fm.Amount;
             workout.NumberSets = fm.NumberSets;
             workout.PlanDate = fm.PlanDate;
             return workout;
+        }
+
+        private int GetWorkoutID(WorkoutFM fm)
+        {
+            int ID = 0;
+            try
+            {
+                ID = Convert.ToInt32(fm.Exercise);
+            }
+            catch
+            {
+                ID = GetExerciseIDByName(fm.NewExercise);
+            }
+            return ID;
+        }
+
+        private int GetExerciseIDByName(string name)
+        {
+            ExerciseDAO dao = new ExerciseDAO();
+            foreach(Exercise exercise in dao.GetExercises())
+            {
+                if (exercise.ExerciseName == name)
+                {
+                    return exercise.ID;
+                }
+            }
+            return dao.AddExercise(name);
         }
 
         public void DeleteWorkout(int workoutID)
