@@ -16,7 +16,8 @@ namespace FitnessTracker.Controllers
                 return RedirectToAction("Register", "Account", new { });
             }
             StatServices log = new StatServices();
-            return View(new Graphs(log.UserWeights(Convert.ToInt32(Session["UserID"]))));
+            Graphs graphs = log.GetGraphs(Convert.ToInt32(Session["UserID"]));
+            return View(log.GetGraphs(Convert.ToInt32(Session["UserID"])));
         }
     }
 }

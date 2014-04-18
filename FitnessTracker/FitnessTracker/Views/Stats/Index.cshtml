@@ -6,7 +6,7 @@
 
 <div style="position:relative; height: 100%; width: 100%;">
     <div class="graph" id="graphOne">
-        @if (Model != null && Model.Weight.Columns > 1)
+        @if (Model != null && Model.Weight != null && Model.Weight.BarHeights != null && Model.Weight.BarHeights.Count > 0)
         {
             <div class="graphTitle">
                 <h3>@Model.Weight.Title</h3>
@@ -20,13 +20,17 @@
                 }
             </div>
             <div class="graphContainer">
-                @for (int i = 0; i < Model.Weight.Columns - 1; i++)
+                @for (int i = 0; i < Model.Weight.BarHeights.Count; i++)
                 {
-                    <div class="graphBar" style="height: @Model.Weight.BarHeights[i]; top: @Model.Weight.BarTop[i];"></div>
+                    <div class="graphBar" style="height: @Model.Weight.BarHeights[i]; top: @Model.Weight.BarTop[i];">
+                        <div class="barValues">
+                            @Model.Weight.Values[i] lbs
+                        </div>
+                    </div>
                 }
             </div>
             <div class="graphBottom">
-                @for (int i = 0; i < Model.Weight.Columns - 1; i++)
+                @for (int i = 0; i < Model.Weight.Bottom.Count; i++)
                 {
                     <div class="columnName">
                         @Model.Weight.Bottom[i]
@@ -35,13 +39,106 @@
             </div>
         }
     </div>
-    @*<div class ="graph" id="graphTwo">
-            @Html.Action("Max")
-        </div>
-        <div class ="graph" id="graphThree">
-            @Html.Action("Workouts")
-        </div>
-        <div class ="graph" id="graphFour">
-
-        </div>*@
+    <div class="graph" id="graphTwo">
+        @if (Model != null && Model.PullupMax != null && Model.PushupMax.BarHeights != null && Model.PushupMax.BarHeights.Count > 0)
+        {
+            <div class="graphTitle">
+                <h3>@Model.PushupMax.Title</h3>
+            </div>
+            <div class="leftSideGraph">
+                @for (int i = 0; i < 10; i++)
+                {
+                    <div class="leftSideContents">
+                        @Model.PushupMax.LeftSide[9 - i]
+                    </div>
+                }
+            </div>
+            <div class="graphContainer">
+                @for (int i = 0; i < Model.PushupMax.BarHeights.Count; i++)
+                {
+                    <div class="graphBar" style="height: @Model.PushupMax.BarHeights[i]; top: @Model.PushupMax.BarTop[i];">
+                        <div class="barValues">
+                            @Model.PushupMax.Values[i]
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="graphBottom">
+                @for (int i = 0; i < Model.PushupMax.Bottom.Count; i++)
+                {
+                    <div class="columnName">
+                        @Model.PushupMax.Bottom[i]
+                    </div>
+                }
+            </div>
+        }
+    </div>
+    <div class="graph" id="graphThree">
+        @if (Model != null && Model.SitupMax != null && Model.SitupMax.BarHeights != null && Model.SitupMax.BarHeights.Count > 0)
+        {
+            <div class="graphTitle">
+                <h3>@Model.SitupMax.Title</h3>
+            </div>
+            <div class="leftSideGraph">
+                @for (int i = 0; i < 10; i++)
+                {
+                    <div class="leftSideContents">
+                        @Model.SitupMax.LeftSide[9 - i]
+                    </div>
+                }
+            </div>
+            <div class="graphContainer">
+                @for (int i = 0; i < Model.SitupMax.BarHeights.Count; i++)
+                {
+                    <div class="graphBar" style="height: @Model.SitupMax.BarHeights[i]; top: @Model.SitupMax.BarTop[i];">
+                        <div class="barValues">
+                            @Model.SitupMax.Values[i]
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="graphBottom">
+                @for (int i = 0; i < Model.SitupMax.Bottom.Count; i++)
+                {
+                    <div class="columnName">
+                        @Model.SitupMax.Bottom[i]
+                    </div>
+                }
+            </div>
+        }
+    </div>
+    <div class="graph" id="graphFour">
+        @if (Model != null && Model.PullupMax != null && Model.PullupMax.BarHeights != null && Model.PullupMax.BarHeights.Count > 0)
+        {
+            <div class="graphTitle">
+                <h3>@Model.PullupMax.Title</h3>
+            </div>
+            <div class="leftSideGraph">
+                @for (int i = 0; i < 10; i++)
+                {
+                    <div class="leftSideContents">
+                        @Model.PullupMax.LeftSide[9 - i]
+                    </div>
+                }
+            </div>
+            <div class="graphContainer">
+                @for (int i = 0; i < Model.PullupMax.BarHeights.Count; i++)
+                {
+                    <div class="graphBar" style="height: @Model.PullupMax.BarHeights[i]; top: @Model.PullupMax.BarTop[i];">
+                        <div class="barValues">
+                            @Model.PullupMax.Values[i]
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="graphBottom">
+                @for (int i = 0; i < Model.PullupMax.Bottom.Count; i++)
+                {
+                    <div class="columnName">
+                        @Model.PullupMax.Bottom[i]
+                    </div>
+                }
+            </div>
+        }
+    </div>
 </div>

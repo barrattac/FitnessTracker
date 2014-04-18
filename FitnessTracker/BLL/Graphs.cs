@@ -10,7 +10,8 @@ namespace BLL
     {
         public Graph Weight { get; set; }
         public Graph PushupMax { get; set; }
-        public Graph Workout { get; set; }
+        public Graph SitupMax { get; set; }
+        public Graph PullupMax { get; set; }
 
         public Graphs(Graph weight)
         {
@@ -19,7 +20,7 @@ namespace BLL
 
         public Graphs()
         {
-            this.Weight = new Graph();
+
         }
     }
 }

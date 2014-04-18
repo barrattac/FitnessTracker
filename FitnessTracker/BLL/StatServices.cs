@@ -9,7 +9,59 @@ namespace BLL
 {
     public class StatServices
     {
-        public Graph UserWeights(int userID)
+        public Graphs GetGraphs(int userID)
+        {
+            Graphs graphs = new Graphs();
+            List<MaxVM> maxes = GetMaxes(userID);
+            graphs.Weight = UserWeights(userID);
+            graphs.PushupMax = GetPushupMaxes(maxes);
+            graphs.SitupMax = GetSitupMaxes(maxes);
+            graphs.PullupMax = GetPullupMaxes(maxes);
+            return graphs;
+        }
+
+        private Graph GetPushupMaxes(List<MaxVM> maxes)
+        {
+            List<MaxVM> pushups = new List<MaxVM>();
+            while (maxes != null && maxes.Count > 0 && (pushups.Count == null || pushups.Count < 10) && maxes[0].Name == "Pushup Max")
+            {
+                pushups.Add(maxes[0]);
+                maxes.RemoveAt(0);
+            }
+            return new Graph(pushups);
+        }
+
+        private Graph GetSitupMaxes(List<MaxVM> maxes)
+        {
+            List<MaxVM> situps = new List<MaxVM>();
+            while (maxes != null && maxes.Count > 0 && maxes[0].Name == "Pushup Max")
+            {
+                maxes.RemoveAt(0);
+            }
+            while (maxes != null && maxes.Count > 0 && (situps.Count == null || situps.Count < 10) && maxes[0].Name == "Situp Max")
+            {
+                situps.Add(maxes[0]);
+                maxes.RemoveAt(0);
+            }
+            return new Graph(situps);
+        }
+
+        private Graph GetPullupMaxes(List<MaxVM> maxes)
+        {
+            List<MaxVM> pullups = new List<MaxVM>();
+            while (maxes != null && maxes.Count > 0 && maxes[0].Name != "Pullup Max")
+            {
+                maxes.RemoveAt(0);
+            }
+            while (maxes != null && maxes.Count > 0 && (pullups.Count == null || pullups.Count < 10))
+            {
+                pullups.Add(maxes[0]);
+                maxes.RemoveAt(0);
+            }
+            return new Graph(pullups);
+        }
+
+        private Graph UserWeights(int userID)
         {
             WeightDAO dao = new WeightDAO();
             return new Graph(dao.GetUserWeights(userID));
@@ -23,6 +75,18 @@ namespace BLL
                 weights.Add(new WeightVM(list[i]));
             }
             return weights;
+        }
+
+        private List<MaxVM> GetMaxes(int userID)
+        {
+            MaxDAO dao = new MaxDAO();
+            List<Max> maxes = dao.GetUserMaxes(userID);
+            List<MaxVM> vm = new List<MaxVM>();
+            for (int i = 0; i < maxes.Count; i++)
+            {
+                vm.Add(new MaxVM(maxes[i]));
+            }
+            return vm;
         }
     }
 }

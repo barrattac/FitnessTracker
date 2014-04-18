@@ -17,15 +17,15 @@ namespace DAL
         {
             switch (type)
             {
-                case "Pushup Max":
+                case "Pushups":
                     this.Name = "Pushup Max";
                     this.Amount = Convert.ToInt32(data["PushUpMax"]);
                     break;
-                case "Situp Max":
+                case "Situps":
                     this.Name = "Situp Max";
                     this.Amount = Convert.ToInt32(data["SitUpMax"]);
                     break;
-                case "Pullup Max":
+                case "Pullups":
                     this.Name = "Pullup Max";
                     this.Amount = Convert.ToInt32(data["PullUpMax"]);
                     break;
@@ -37,6 +37,5 @@ namespace DAL
         {
 
         }
-
     }
 }
