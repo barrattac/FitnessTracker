@@ -15,23 +15,24 @@ namespace FitnessTracker.Controllers
             {
                 return RedirectToAction("Register", "Account", new { });
             }
-            return View();
-        }
-
-        public ActionResult Weight()
-        {
             StatServices log = new StatServices();
-            return PartialView("_Weight", log.UserWeights(Convert.ToInt32(Session["UserID"])));
+            return View(log.UserWeights(Convert.ToInt32(Session["UserID"])));
         }
 
-        public ActionResult Max()
-        {
-            return PartialView();
-        }
+        //public ActionResult Weight()
+        //{
+        //    StatServices log = new StatServices();
 
-        public ActionResult Workouts()
-        {
-            return PartialView();
-        }
+        //}
+
+        //public ActionResult Max()
+        //{
+        //    return PartialView();
+        //}
+
+        //public ActionResult Workouts()
+        //{
+        //    return PartialView();
+        //}
     }
 }

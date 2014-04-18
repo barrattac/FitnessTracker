@@ -42,6 +42,7 @@
     <Compile Include="AccountServices.cs" />
     <Compile Include="ExerciseFM.cs" />
     <Compile Include="ExerciseVM.cs" />
+    <Compile Include="Graph.cs" />
     <Compile Include="PlanningServices.cs" />
     <Compile Include="StatServices.cs" />
     <Compile Include="UserFM.cs" />

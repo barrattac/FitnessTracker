@@ -9,10 +9,10 @@ namespace BLL
 {
     public class StatServices
     {
-        public List<WeightVM> UserWeights(int userID)
+        public Graph UserWeights(int userID)
         {
             WeightDAO dao = new WeightDAO();
-            return ConvertWeights(dao.GetUserWeights(userID));
+            return new Graph(dao.GetUserWeights(userID));
         }
 
         private List<WeightVM> ConvertWeights(List<Weight> list)

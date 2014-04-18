@@ -86,27 +86,99 @@ table {
     overflow: hidden;
 }
 
-.red{
+.red {
     color: red;
 }
 
-.stats{
-    max-height: 45%;
-    max-width: 45%;
-    min-height: 45%;
-    min-width: 45%;
+/*#region StatGraphes */
+.graph {
+    position: absolute;
     height: 45%;
     width: 45%;
-    margin: 2.5%;
-    display:inline;
-    position:absolute;
+    border: 1px solid black;
+    background-color: aqua;
+    opacity: .7;
+    overflow: hidden;
+    color: green;
 }
 
-.graph{
-    max-width: 100%;
-    max-height: 100%;
-    min-width: 100%;
-    min-height: 100%;
-    width: 100%;
-    height: 100%;
+#graphOne {
+    top: 2.5%;
+    left: 2.5%;
 }
+
+#graphTwo {
+    top: 2.5%;
+    left: 52.5%;
+}
+
+#graphThree {
+    top: 52.5%;
+    left: 2.5%;
+}
+
+#graphFour {
+    top: 52.5%;
+    left: 52.5%;
+}
+
+.graphTitle {
+    position: absolute;
+    height: 10%;
+    width: 100%;
+    top: -8%;
+    text-align: center;
+    opacity: 1;
+}
+
+.leftSideGraph {
+    position: absolute;
+    height: 80%;
+    width: 10%;
+    top: 10%;
+    padding-left:1%;
+    opacity: 1;
+}
+
+.leftSideContents{
+    position:relative;
+    height: 10%;
+}
+
+.graphContainer{
+    position: absolute;
+    height: 80%;
+    width: 85%;
+    top: 10%;
+    left: 10%;
+    opacity: 1;
+    border: 1px solid black;
+}
+
+.graphBottom{
+    position: absolute;
+    height: 10%;
+    width: 90%;
+    top: 90%;
+    left: 10%;
+    opacity: 1;
+}
+
+.columnName{
+    position:relative;
+    display: inline;
+    float: left;
+    width: 8%;
+    margin-left: 2%;
+}
+
+.graphBar{
+    position:relative;
+    display: inline;
+    float: left;
+    background-color: green;
+    /*border: 1px solid black;*/
+    width: 8%;
+    margin-left: 2%;
+}
+/*#endregion */

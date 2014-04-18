@@ -1,18 +1,49 @@
-﻿@{
+﻿@model BLL.Graph
+
+@{
     ViewBag.Title = "Stats";
 }
 
-<h2>Stats</h2>
+<div style="position:relative; height: 100%; width: 100%;">
+    <div class="graph" id="graphOne">
+        @if (Model != null && Model.Columns > 1)
+        {
+            <div class="graphTitle">
+                <h3>@Model.Title</h3>
+            </div>
+            <div class="leftSideGraph">
+                @for (int i = 0; i < 10; i++)
+                {
+                    <div class="leftSideContents">
+                        @Model.LeftSide[9 - i]
+                    </div>
+                }
+            </div>
+            <div class="graphContainer">
+                @for (int i = 0; i < Model.Columns - 1; i++)
+                {
+                    <div class="graphBar" style="height: @Model.BarHeights[i]; top: @Model.BarTop[i];">
 
-<div class="stats">
-    @Html.Action("Weight")
-</div>
-@*<div class="stats">
-    @Html.Action("Max")
-</div>
-<div class="stats">
-    @Html.Action("Workouts")
-</div>
-<div class="stats">
+                    </div>
+                }
+            </div>
+            <div class="graphBottom">
+                @for (int i = 0; i < Model.Columns - 1; i++)
+                {
+                    <div class="columnName">
+                        @Model.Bottom[i]
+                    </div>
+                }
+            </div>
+        }
+    </div>
+    @*<div class ="graph" id="graphTwo">
+            @Html.Action("Max")
+        </div>
+        <div class ="graph" id="graphThree">
+            @Html.Action("Workouts")
+        </div>
+        <div class ="graph" id="graphFour">
 
-</div>*@
+        </div>*@
+</div>
