@@ -43,6 +43,7 @@
     <Compile Include="Exercise.cs" />
     <Compile Include="ExerciseDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Max.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserDAO.cs" />
     <Compile Include="Weight.cs" />

@@ -44,6 +44,7 @@
     <Compile Include="ExerciseVM.cs" />
     <Compile Include="Graph.cs" />
     <Compile Include="Graphs.cs" />
+    <Compile Include="MaxVM.cs" />
     <Compile Include="PlanningServices.cs" />
     <Compile Include="StatServices.cs" />
     <Compile Include="UserFM.cs" />

@@ -9,7 +9,7 @@ namespace BLL
     public class Graphs
     {
         public Graph Weight { get; set; }
-        public Graph Max { get; set; }
+        public Graph PushupMax { get; set; }
         public Graph Workout { get; set; }
 
         public Graphs(Graph weight)
