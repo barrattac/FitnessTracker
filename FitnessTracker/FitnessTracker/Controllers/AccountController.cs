@@ -10,8 +10,12 @@ namespace FitnessTracker.Controllers
     public class AccountController : Controller
     {
         [HttpGet]
-        public ActionResult Register()
+        public ActionResult Register(string error)
         {
+            if (error != null)
+            {
+                ViewBag.ErrorMessage = error;
+            }
             return View();
         }
         [HttpPost]
@@ -43,8 +47,8 @@ namespace FitnessTracker.Controllers
             if (Convert.ToInt32(Session["UserID"]) == 0)
             {
                 Session["UserID"] = null;
-                ViewBag.ErrorMessage = "Invalid credentials.";
-                return View("Register");
+                string error ="Invalid credentials.";
+                return RedirectToAction("Register", new { error });
             }
             return RedirectToAction("Index", "Home", new { });
         }
