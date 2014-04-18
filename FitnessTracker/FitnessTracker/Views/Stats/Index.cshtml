@@ -6,11 +6,14 @@
 
 <div style="position:relative; height: 100%; width: 100%;">
     <div class="graph" id="graphOne">
+        <div class="graphTitle">
+            <h3>Weight Change</h3>
+        </div>
+        <div class="graphTitle statsUpdate">
+            @Html.ActionLink("Update Weight", "UpdateWeight")
+        </div>
         @if (Model != null && Model.Weight != null && Model.Weight.BarHeights != null && Model.Weight.BarHeights.Count > 0)
         {
-            <div class="graphTitle">
-                <h3>@Model.Weight.Title</h3>
-            </div>
             <div class="leftSideGraph">
                 @for (int i = 0; i < 10; i++)
                 {
@@ -38,13 +41,23 @@
                 }
             </div>
         }
+        else
+        {
+            <div class="graphContainer" style="text-align:center; padding: 20%;">
+                <h3>You have no data to display.</h3>
+                <p>Please, input some information.</p>
+            </div>
+        }
     </div>
     <div class="graph" id="graphTwo">
-        @if (Model != null && Model.PullupMax != null && Model.PushupMax.BarHeights != null && Model.PushupMax.BarHeights.Count > 0)
+        <div class="graphTitle">
+            <h3>Pushup Max</h3>
+        </div>
+        <div class="graphTitle statsUpdate">
+            @Html.ActionLink("Update Pushup Max", "UpdatePushupMax")
+        </div>
+        @if (Model != null && Model.PushupMax != null && Model.PushupMax.BarHeights != null && Model.PushupMax.BarHeights.Count > 0)
         {
-            <div class="graphTitle">
-                <h3>@Model.PushupMax.Title</h3>
-            </div>
             <div class="leftSideGraph">
                 @for (int i = 0; i < 10; i++)
                 {
@@ -72,13 +85,23 @@
                 }
             </div>
         }
+        else
+        {
+            <div class="graphContainer" style="text-align:center;">
+                <h3>You have no data to display.</h3>
+                <p>Please, input some information.</p>
+            </div>
+        }
     </div>
     <div class="graph" id="graphThree">
+        <div class="graphTitle">
+            <h3>Situp Max</h3>
+        </div>
+        <div class="graphTitle statsUpdate">
+            @Html.ActionLink("Update Situp Max", "UpdateSitupMax")
+        </div>
         @if (Model != null && Model.SitupMax != null && Model.SitupMax.BarHeights != null && Model.SitupMax.BarHeights.Count > 0)
         {
-            <div class="graphTitle">
-                <h3>@Model.SitupMax.Title</h3>
-            </div>
             <div class="leftSideGraph">
                 @for (int i = 0; i < 10; i++)
                 {
@@ -106,13 +129,23 @@
                 }
             </div>
         }
+        else
+        {
+            <div class="graphContainer" style="text-align:center;">
+                <h3>You have no data to display.</h3>
+                <p>Please, input some information.</p>
+            </div>
+        }
     </div>
     <div class="graph" id="graphFour">
+        <div class="graphTitle">
+            <h3>Pullup Max</h3>
+        </div>
+        <div class="graphTitle statsUpdate">
+            @Html.ActionLink("Update Pullup Max", "UpdatePullupMax")
+        </div>
         @if (Model != null && Model.PullupMax != null && Model.PullupMax.BarHeights != null && Model.PullupMax.BarHeights.Count > 0)
         {
-            <div class="graphTitle">
-                <h3>@Model.PullupMax.Title</h3>
-            </div>
             <div class="leftSideGraph">
                 @for (int i = 0; i < 10; i++)
                 {
@@ -138,6 +171,13 @@
                         @Model.PullupMax.Bottom[i]
                     </div>
                 }
+            </div>
+        }
+        else
+        {
+            <div class="graphContainer" style="text-align:center;">
+                <h3>You have no data to display.</h3>
+                <p>Please, input some information.</p>
             </div>
         }
     </div>

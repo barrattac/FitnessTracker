@@ -131,6 +131,12 @@ table {
     opacity: 1;
 }
 
+.statsUpdate {
+    width: 95%;
+    text-align: right;
+    top: 0%;
+}
+
 .leftSideGraph {
     position: absolute;
     height: 80%;
@@ -140,12 +146,12 @@ table {
     text-align: right;
 }
 
-.leftSideContents{
-    position:relative;
+.leftSideContents {
+    position: relative;
     height: 10%;
 }
 
-.graphContainer{
+.graphContainer {
     position: absolute;
     height: 80%;
     width: 85%;
@@ -155,7 +161,7 @@ table {
     border: 1px solid black;
 }
 
-.graphBottom{
+.graphBottom {
     position: absolute;
     height: 10%;
     width: 90%;
@@ -164,16 +170,16 @@ table {
     opacity: 1;
 }
 
-.columnName{
-    position:relative;
+.columnName {
+    position: relative;
     display: inline;
     float: left;
     width: 8%;
     margin-left: 2%;
 }
 
-.graphBar{
-    position:relative;
+.graphBar {
+    position: relative;
     display: inline;
     float: left;
     background-color: green;
@@ -182,10 +188,10 @@ table {
     margin-left: 2%;
 }
 
-.barValues{
+.barValues {
     height: 100%;
     width: 100%;
-    text-align:center;
+    text-align: center;
     padding-top: 5px;
     font-weight: 700;
 }
