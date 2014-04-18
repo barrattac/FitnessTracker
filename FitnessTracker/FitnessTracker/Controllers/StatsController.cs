@@ -16,23 +16,7 @@ namespace FitnessTracker.Controllers
                 return RedirectToAction("Register", "Account", new { });
             }
             StatServices log = new StatServices();
-            return View(log.UserWeights(Convert.ToInt32(Session["UserID"])));
+            return View(new Graphs(log.UserWeights(Convert.ToInt32(Session["UserID"]))));
         }
-
-        //public ActionResult Weight()
-        //{
-        //    StatServices log = new StatServices();
-
-        //}
-
-        //public ActionResult Max()
-        //{
-        //    return PartialView();
-        //}
-
-        //public ActionResult Workouts()
-        //{
-        //    return PartialView();
-        //}
     }
 }

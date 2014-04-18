@@ -172,7 +172,7 @@ jQuery.fn = jQuery.prototype = {
 					return this;
 				}
 
-			// HANDLE: $(expr, $(...))
+			// HANDLE: $(expr, $(..))
 			} else if ( !context || context.jquery ) {
 				return ( context || rootjQuery ).find( selector );
 
@@ -1201,7 +1201,7 @@ jQuery.extend({
 	},
 
 	// Deferred helper
-	when: function( subordinate /* , ..., subordinateN */ ) {
+	when: function( subordinate /* , .., subordinateN */ ) {
 		var i = 0,
 			resolveValues = core_slice.call( arguments ),
 			length = resolveValues.length,
@@ -2700,7 +2700,7 @@ jQuery.event = {
 		}
 
 		// Handle multiple events separated by a space
-		// jQuery(...).bind("mouseover mouseout", fn);
+		// jQuery(..).bind("mouseover mouseout", fn);
 		types = jQuery.trim( hoverHack(types) ).split( " " );
 		for ( t = 0; t < types.length; t++ ) {
 
@@ -4188,8 +4188,8 @@ Expr = Sizzle.selectors = {
 
 		"CHILD": function( match ) {
 			/* matches from matchExpr["CHILD"]
-				1 type (only|nth|...)
-				2 argument (even|odd|\d*|\d*n([+-]\d+)?|...)
+				1 type (only|nth|..)
+				2 argument (even|odd|\d*|\d*n([+-]\d+)?|..)
 				3 xn-component of xn+y argument ([+-]?\d*n|)
 				4 sign of xn-component
 				5 x of xn-component
@@ -4872,10 +4872,10 @@ function setMatcher( preFilter, selector, matcher, postFilter, postFinder, postS
 				// If we have a postFinder, or filtered seed, or non-seed postFilter or preexisting results,
 				postFinder || ( seed ? preFilter : preexisting || postFilter ) ?
 
-					// ...intermediate processing is necessary
+					// ..intermediate processing is necessary
 					[] :
 
-					// ...otherwise use results directly
+					// ..otherwise use results directly
 					results :
 				matcherIn;
 
@@ -7084,7 +7084,7 @@ if ( !jQuery.support.opacity ) {
 
 				// Setting style.filter to null, "" & " " still leave "filter:" in the cssText
 				// if "filter:" is present at all, clearType is disabled, we want to avoid this
-				// style.removeAttribute is IE Only, but so apparently is this code path...
+				// style.removeAttribute is IE Only, but so apparently is this code path..
 				style.removeAttribute( "filter" );
 
 				// if there there is no filter style applied in a css rule, we are done
@@ -8995,7 +8995,7 @@ jQuery.each([ "toggle", "show", "hide" ], function( i, name ) {
 	var cssFn = jQuery.fn[ name ];
 	jQuery.fn[ name ] = function( speed, easing, callback ) {
 		return speed == null || typeof speed === "boolean" ||
-			// special check for .toggle( handler, handler, ... )
+			// special check for .toggle( handler, handler, .. )
 			( !i && jQuery.isFunction( speed ) && jQuery.isFunction( easing ) ) ?
 			cssFn.apply( this, arguments ) :
 			this.animate( genFx( name, true ), speed, easing, callback );

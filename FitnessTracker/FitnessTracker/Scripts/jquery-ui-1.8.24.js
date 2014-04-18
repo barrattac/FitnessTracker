@@ -1991,7 +1991,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 					//Checking the correct pad and border
 					padWrapper = /sw|ne|nw|se|n|s/.test(i) ? axis.outerHeight() : axis.outerWidth();
 
-					//The padding type i have to apply...
+					//The padding type i have to apply..
 					var padPos = [ 'padding',
 						/ne|nw|n/.test(i) ? 'Top' :
 						/se|sw|s/.test(i) ? 'Bottom' :
@@ -6954,7 +6954,7 @@ function Datepicker() {
 		dayNamesMin: ['Su','Mo','Tu','We','Th','Fr','Sa'], // Column headings for days starting at Sunday
 		weekHeader: 'Wk', // Column header for week of the year
 		dateFormat: 'mm/dd/yy', // See format options on parseDate
-		firstDay: 0, // The first day of the week, Sun = 0, Mon = 1, ...
+		firstDay: 0, // The first day of the week, Sun = 0, Mon = 1, ..
 		isRTL: false, // True if right-to-left language, false if left-to-right
 		showMonthAfterYear: false, // True if the year select precedes month, false for month then year
 		yearSuffix: '' // Additional text to append to the year in the month headers
@@ -6967,7 +6967,7 @@ function Datepicker() {
 		defaultDate: null, // Used when field is blank: actual date,
 			// +/-number for offset from today, null for today
 		appendText: '', // Display text following the input box, e.g. showing the format
-		buttonText: '...', // Text for trigger button
+		buttonText: '..', // Text for trigger button
 		buttonImage: '', // URL for trigger button image
 		buttonImageOnly: false, // True if the image appears alone, false if it appears on a button
 		hideIfNoPrevNext: false, // True to hide next/previous month links
@@ -8054,7 +8054,7 @@ $.extend(Datepicker.prototype, {
 	   yy - year (four digit)
 	   @ - Unix timestamp (ms since 01/01/1970)
 	   ! - Windows ticks (100ns since 01/01/0001)
-	   '...' - literal text
+	   '..' - literal text
 	   '' - single quote
 
 	   @param  format    string - the desired format of the date
@@ -10753,7 +10753,7 @@ $.widget( "ui.tabs", {
 			// such href to the full page url with hash and then misinterprets tab as ajax.
 			// Same consideration applies for an added tab with a fragment identifier
 			// since a[href=#fragment-identifier] does unexpectedly not match.
-			// Thus normalize href attribute...
+			// Thus normalize href attribute..
 			var hrefBase = href.split( "#" )[ 0 ],
 				baseEl;
 			if ( hrefBase && ( hrefBase === location.toString().split( "#" )[ 0 ] ||
@@ -10825,7 +10825,7 @@ $.widget( "ui.tabs", {
 				o.selected = -1;
 			}
 
-			// sanity check - default to first tab...
+			// sanity check - default to first tab..
 			o.selected = ( ( o.selected >= 0 && this.anchors[ o.selected ] ) || o.selected < 0 )
 				? o.selected
 				: 0;
@@ -10930,7 +10930,7 @@ $.widget( "ui.tabs", {
 		}
 
 		// Reset certain styles left over from animation
-		// and prevent IE's ClearType bug...
+		// and prevent IE's ClearType bug..
 		function resetStyle( $el, fx ) {
 			$el.css( "display", "" );
 			if ( !$.support.opacity && fx.opacity ) {
@@ -10938,7 +10938,7 @@ $.widget( "ui.tabs", {
 			}
 		}
 
-		// Show a tab...
+		// Show a tab..
 		var showTab = showFx
 			? function( clicked, $show ) {
 				$( clicked ).closest( "li" ).addClass( "ui-tabs-selected ui-state-active" );
@@ -10954,7 +10954,7 @@ $.widget( "ui.tabs", {
 				self._trigger( "show", null, self._ui( clicked, $show[ 0 ] ) );
 			};
 
-		// Hide a tab, $show is optional...
+		// Hide a tab, $show is optional..
 		var hideTab = hideFx
 			? function( clicked, $hide ) {
 				$hide.animate( hideFx, hideFx.duration || "normal", function() {
@@ -10970,7 +10970,7 @@ $.widget( "ui.tabs", {
 				self.element.dequeue( "tabs" );
 			};
 
-		// attach tab event handler, unbind to avoid duplicates from former tabifying...
+		// attach tab event handler, unbind to avoid duplicates from former tabifying..
 		this.anchors.bind( o.event + ".tabs", function() {
 			var el = this,
 				$li = $(el).closest( "li" ),
@@ -11299,7 +11299,7 @@ $.widget( "ui.tabs", {
 			}
 		} ) );
 
-		// last, so that load event is fired before show...
+		// last, so that load event is fired before show..
 		self.element.dequeue( "tabs" );
 
 		return this;
@@ -11311,7 +11311,7 @@ $.widget( "ui.tabs", {
 		this.panels.stop( false, true );
 
 		// "tabs" queue must not contain more than two elements,
-		// which are the callbacks for the latest clicked tab...
+		// which are the callbacks for the latest clicked tab..
 		this.element.queue( "tabs", this.element.queue( "tabs" ).splice( -2, 2 ) );
 
 		// terminate pending requests from other tabs

@@ -204,7 +204,7 @@ window.Modernizr = (function( window, document, undefined ) {
     // The following results are known incorrects:
     //   Modernizr.hasEvent("webkitTransitionEnd", elem) // false negative
     //   Modernizr.hasEvent("textInput") // in Webkit. github.com/Modernizr/Modernizr/issues/333
-    //   ...
+    //   ..
     isEventSupported = (function() {
 
       var TAGNAMES = {
@@ -486,7 +486,7 @@ window.Modernizr = (function( window, document, undefined ) {
     };
 
 
-    // geolocation is often considered a trivial feature detect...
+    // geolocation is often considered a trivial feature detect..
     // Turns out, it's quite tricky to get right:
     //
     // Using !!navigator.geolocation does two things we don't want. It:
@@ -684,7 +684,7 @@ window.Modernizr = (function( window, document, undefined ) {
         if ( ret && 'webkitPerspective' in docElement.style ) {
 
           // Webkit allows this media query to succeed only if the feature is enabled.
-          // `@media (transform-3d),(-webkit-transform-3d){ ... }`
+          // `@media (transform-3d),(-webkit-transform-3d){ .. }`
           injectElementWithStyles('@media (transform-3d),(-webkit-transform-3d){#modernizr{left:9px;position:absolute;height:3px;}}', function( node, rule ) {
             ret = node.offsetLeft === 9 && node.offsetHeight === 3;
           });
@@ -908,7 +908,7 @@ window.Modernizr = (function( window, document, undefined ) {
                 inputElem.setAttribute('type', inputElemType = props[i]);
                 bool = inputElem.type !== 'text';
 
-                // We first check to see if the type we give it sticks..
+                // We first check to see if the type we give it sticks.
                 // If the type does, we feed it a textual value, which shouldn't be valid.
                 // If the value doesn't stick, we know there's input sanitization which infers a custom UI
                 if ( bool ) {
@@ -1367,7 +1367,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
     /*>>teststyles*/
     // Modernizr.testStyles() allows you to add custom styles to the document and test an element afterwards
-    // Modernizr.testStyles('#modernizr { position:absolute }', function(elem, rule){ ... })
+    // Modernizr.testStyles('#modernizr { position:absolute }', function(elem, rule){ .. })
     Modernizr.testStyles    = injectElementWithStyles;
     /*>>teststyles*/
 
@@ -1381,7 +1381,7 @@ window.Modernizr = (function( window, document, undefined ) {
     //
     //     str.replace(/([A-Z])/g, function(str,m1){ return '-' + m1.toLowerCase(); }).replace(/^ms-/,'-ms-');
 
-    // If you're trying to ascertain which transition end event to bind to, you might do something like...
+    // If you're trying to ascertain which transition end event to bind to, you might do something like..
     //
     //     var transEndEventNames = {
     //       'WebkitTransition' : 'webkitTransitionEnd',

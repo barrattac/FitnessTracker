@@ -653,7 +653,7 @@ ko.utils.domNodeDisposal = new (function () {
             if (cleanableNodeTypes[node.nodeType]) {
                 cleanSingleNode(node);
 
-                // ... then its descendants, where applicable
+                // .. then its descendants, where applicable
                 if (cleanableNodeTypesWithDescendants[node.nodeType]) {
                     // Clone the descendants list in case it changes during iteration
                     var descendants = [];
@@ -727,7 +727,7 @@ ko.exportSymbol('utils.domNodeDisposal.removeDisposeCallback', ko.utils.domNodeD
             var elem = elems[0];
             while (elem.parentNode && elem.parentNode.nodeType !== 11 /* i.e., DocumentFragment */)
                 elem = elem.parentNode;
-            // ... then detach it
+            // .. then detach it
             if (elem.parentNode)
                 elem.parentNode.removeChild(elem);
         }
@@ -737,7 +737,7 @@ ko.exportSymbol('utils.domNodeDisposal.removeDisposeCallback', ko.utils.domNodeD
 
     ko.utils.parseHtmlFragment = function(html) {
         return typeof jQuery != 'undefined' ? jQueryHtmlParse(html)   // As below, benefit from jQuery's optimisations where possible
-                                            : simpleHtmlParse(html);  // ... otherwise, this simple logic will do in most common cases.
+                                            : simpleHtmlParse(html);  // .. otherwise, this simple logic will do in most common cases.
     };
 
     ko.utils.setHtml = function(node, html) {
@@ -756,7 +756,7 @@ ko.exportSymbol('utils.domNodeDisposal.removeDisposeCallback', ko.utils.domNodeD
             if (typeof jQuery != 'undefined') {
                 jQuery(node)['html'](html);
             } else {
-                // ... otherwise, use KO's own parsing logic.
+                // .. otherwise, use KO's own parsing logic.
                 var parsedNodes = ko.utils.parseHtmlFragment(html);
                 for (var i = 0; i < parsedNodes.length; i++)
                     node.appendChild(parsedNodes[i]);
@@ -2013,7 +2013,7 @@ ko.exportSymbol('bindingProvider', ko.bindingProvider);
     function applyBindingsToNodeAndDescendantsInternal (viewModel, nodeVerified, bindingContextMayDifferFromDomParentElement) {
         var shouldBindDescendants = true;
 
-        // Perf optimisation: Apply bindings only if...
+        // Perf optimisation: Apply bindings only if..
         // (1) We need to store the binding context on this node (because it may differ from the DOM parent node's binding context)
         //     Note that we can't store binding contexts on non-elements (e.g., text nodes), as IE doesn't allow expando properties for those
         // (2) It might have bindings (e.g., it has a data-bind attribute, or it's a marker for a containerless template)
@@ -2098,7 +2098,7 @@ ko.exportSymbol('bindingProvider', ko.bindingProvider);
                         initPhase = 2;
                     }
 
-                    // ... then run all the updates, which might trigger changes even on the first evaluation
+                    // .. then run all the updates, which might trigger changes even on the first evaluation
                     if (initPhase === 2) {
                         for (var bindingKey in parsedBindings) {
                             var binding = ko.bindingHandlers[bindingKey];
@@ -3327,7 +3327,7 @@ ko.exportSymbol('utils.compareArrays', ko.utils.compareArrays);
                 newContiguousSet.push(current);
             }
 
-            // ... then mutate the input array to match this.
+            // .. then mutate the input array to match this.
             // (The following line replaces the contents of contiguousNodeArray with newContiguousSet)
             Array.prototype.splice.apply(contiguousNodeArray, [0, contiguousNodeArray.length].concat(newContiguousSet));
         }
@@ -3541,7 +3541,7 @@ ko.exportSymbol('nativeTemplateEngine', ko.nativeTemplateEngine);
             var precompiled = templateSource['data']('precompiled');
             if (!precompiled) {
                 var templateText = templateSource['text']() || "";
-                // Wrap in "with($whatever.koBindingContext) { ... }"
+                // Wrap in "with($whatever.koBindingContext) { .. }"
                 templateText = "{{ko_with $item.koBindingContext}}" + templateText + "{{/ko_with}}";
 
                 precompiled = jQuery['template'](null, templateText);
