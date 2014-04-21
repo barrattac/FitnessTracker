@@ -9,8 +9,16 @@ namespace DAL
 {
     public class Weight
     {
+        public int UserID { get; set; }
         public int Pounds { get; set; }
         public DateTime Date { get; set; }
+
+        public Weight(int userID, int weight, DateTime date)
+        {
+            this.UserID = userID;
+            this.Pounds = weight;
+            this.Date = date;
+        }
 
         public Weight(SqlDataReader data)
         {

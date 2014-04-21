@@ -56,5 +56,62 @@ namespace DAL
             maxes.AddRange(ReadMaxes("GetUserMaxPullups", parameters3, "Pullups"));
             return maxes;
         }
+
+        public int UpdateWeight(Weight weight)
+        {
+            SqlParameter[] parameters = new SqlParameter[]{
+                new SqlParameter("@Weight", weight.Pounds),
+                new SqlParameter("@Date", weight.Date)
+            };
+            return Write("UpdateUserWeight", parameters);
+        }
+
+        public int UpdatePushupMax(Max max)
+        {
+            SqlParameter[] parameters = MaxParameters(max);
+            return Write("UpdateUserPushupMax", parameters);
+        }
+
+        public int UpdateSitupMax(Max max)
+        {
+            SqlParameter[] parameters = MaxParameters(max);
+            return Write("UpdateUserSitupMax", parameters);
+        }
+
+        public int UpdatePullupMax(Max max)
+        {
+            SqlParameter[] parameters = MaxParameters(max);
+            return Write("UpdateUserPullupMax", parameters);
+        }
+
+        private SqlParameter[] MaxParameters(Max max)
+        {
+            return new SqlParameter[]{
+                new SqlParameter("@Amount", max.Amount),
+                new SqlParameter("@Date", max.Date)
+            };
+        }
+
+        public int UpdateStats(Max max, string type)
+        {
+            SqlParameter[] parameters = new SqlParameter[2];
+            parameters[0] = new SqlParameter("@UserID", max.UserID);
+            switch (type)
+            {
+                case "weight":
+                    parameters[1] = new SqlParameter("@Weight", max.Amount);
+                    break;
+                case "pushup":
+                    parameters[1] = new SqlParameter("@Pushup", max.Amount);
+                    break;
+                case "situp":
+                    parameters[1] = new SqlParameter("@Situp", max.Amount);
+                    break;
+                case "pullup":
+                    parameters[1] = new SqlParameter("@Pullup", max.Amount);
+                    break;
+            }
+            return Write("UpdateUserStats", parameters);
+        }
     }
 }

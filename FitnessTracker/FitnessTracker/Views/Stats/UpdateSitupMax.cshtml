@@ -1,0 +1,35 @@
+﻿@model BLL.StatsFM
+
+@{
+    ViewBag.Title = "Situp Max";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="margin:15px;">
+    <h2>Situp Max</h2>
+
+    @ViewBag.ErrorMessage
+
+    @using (Html.BeginForm("UpdateSitupMax", "Stats", FormMethod.Post))
+    {
+        <div class="formField">
+            <div class="formContents">
+                Weight:
+            </div>
+            <div class="formContents">
+                @Html.TextBoxFor(m => m.SitupMax, new { @placeholder = "Situp Max" })
+            </div>
+        </div>
+        <div class="formField">
+            <div class="formContents">
+                Date
+            </div>
+            <div class="formContents">
+                @Html.TextBoxFor(m => m.Date, new { @placeholder = @DateTime.Now.ToString("D") })
+            </div>
+        </div>
+        <div class="formField">
+            <input type="submit" value="Update Situp Max" />
+        </div>
+    }
+</div>
