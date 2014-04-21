@@ -18,5 +18,13 @@
     </a><br />
     @Html.ActionLink("Stats", "Index", "Stats")
 </div>
+<div class="homePageLinks">
+    <a href=@Url.Action("UpdateUserInfo", "Account", new { })>
+        <img src='~/Images/SettingIcon.png' style="height:100px;" />
+    </a><br />
+    @Html.ActionLink("Update Your", "UpdateUserInfo", "Account")<br />
+    @Html.ActionLink("Information/Password", "UpdateUserInfo", "Account")
+</div>
+
 
 @*Add links to pages.*@
