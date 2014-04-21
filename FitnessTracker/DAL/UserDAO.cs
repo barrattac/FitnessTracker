@@ -62,13 +62,27 @@ namespace DAL
 
         public int CreateUser(User user)
         {
-            SqlParameter[] parameters = new SqlParameter[]{
+            return Write("CreateUser", UserParameters(user));
+        }
+
+        private SqlParameter[] UserParameters(User user)
+        {
+            if (user.ID == null || user.ID == 0)
+            {
+                return new SqlParameter[]{
+                    new SqlParameter("@Email", user.Email),
+                    new SqlParameter("@Password", user.Password),
+                    new SqlParameter("@FirstName", user.FirstName),
+                    new SqlParameter("@LastName", user.LastName)
+                };
+            }
+            return new SqlParameter[]{
+                new SqlParameter("@UserID", user.ID),
                 new SqlParameter("@Email", user.Email),
                 new SqlParameter("@Password", user.Password),
                 new SqlParameter("@FirstName", user.FirstName),
                 new SqlParameter("@LastName", user.LastName)
             };
-            return Write("CreateUser", parameters);
         }
 
         public int Login(User user)
@@ -93,6 +107,11 @@ namespace DAL
             {
                 return null;
             }
+        }
+
+        public void UpdateUser(User user)
+        {
+            Write("UpdateUser", UserParameters(user));
         }
     }
 }

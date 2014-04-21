@@ -1,0 +1,59 @@
+﻿@model BLL.UserFM
+
+@{
+    ViewBag.Title = "Update Infomation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="margin:15px;">
+    <h2>Update Your Infomation</h2>
+
+    @ViewBag.ErrorMessage
+
+    @using (Html.BeginForm("UpdateUserInfo", "Account", FormMethod.Post))
+    {
+        <div class="formField">
+            <div class="formContents">
+                First Name:
+            </div>
+            <div class="formContents">
+                @Html.TextBoxFor(m => m.FirstName)
+            </div>
+        </div>
+        <div class="formField">
+            <div class="formContents">
+                Last Name:
+            </div>
+            <div class="formContents">
+                @Html.TextBoxFor(m => m.LastName)
+            </div>
+        </div>
+        <div class="formField">
+            <div class="formContents">
+                Email:
+            </div>
+            <div class="formContents">
+                @Html.TextBoxFor(m => m.Email)
+            </div>
+        </div>
+        <div class="formField">
+            <div class="formContents">
+                New Password:
+            </div>
+            <div class="formContents">
+                @Html.PasswordFor(m => m.Password, new { @placeholder = "Password" })
+            </div>
+        </div>
+        <div class="formField">
+            <div class="formContents">
+                Confirm Password:
+            </div>
+            <div class="formContents">
+                @Html.PasswordFor(m => m.ConfirmPass, new { @placeholder = "Confirm Password" })
+            </div>
+        </div>
+        <div class="formField">
+            <input type="submit" value="Update Inforamtion" />
+        </div>
+    }
+</div>

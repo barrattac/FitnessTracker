@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DAL;
 
 namespace BLL
 {
@@ -14,6 +15,14 @@ namespace BLL
         public string ConfirmPass { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+
+        public UserFM(UserVM user)
+        {
+            this.ID = user.ID;
+            this.Email = user.Email;
+            this.FirstName = user.FirstName;
+            this.LastName = user.LastName;
+        }
 
         public UserFM()
         {

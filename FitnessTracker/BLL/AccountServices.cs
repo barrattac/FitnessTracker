@@ -57,6 +57,11 @@ namespace BLL
             return dao.GetUser(ConvertUser(user));
         }
 
+        public UserFM GetUser(int userID)
+        {
+            return new UserFM(new UserVM(userID));
+        }
+
         private User ConvertUser(UserFM fm)
         {
             User user = new User();
@@ -66,16 +71,6 @@ namespace BLL
             user.FirstName = fm.FirstName;
             user.LastName = fm.LastName;
             return user;
-        }
-
-        private UserVM ConvertUser(User user)
-        {
-            UserVM vm = new UserVM();
-            vm.ID = user.ID;
-            vm.Email = user.Email;
-            vm.FirstName = user.FirstName;
-            vm.LastName = user.LastName;
-            return vm;
         }
 
         public int CreateUser(UserFM user)
@@ -122,6 +117,49 @@ namespace BLL
         {
             UserDAO dao = new UserDAO();
             return dao.Login(ConvertUser(user));
+        }
+
+        public bool UpdateUserInfo(UserFM fm)
+        {
+            UserDAO dao = new UserDAO();
+            User user = dao.GetUserByID(fm.ID);
+            if (fm.Password == null)
+            {
+                fm.Password = user.Password;
+                fm.ConfirmPass = fm.Password;
+            }
+            if (ValidPasswords(fm) && ValidEmail(fm) && ValidNames(fm))
+            {
+                if (user.Email == fm.Email || !IsExistingUser(fm))
+                {
+                    dao.UpdateUser(ConvertUser(fm));
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public string GetUpdateUserError(UserFM fm)
+        {
+            string errorMessage = "An Unknown Error Occurred.";
+            UserDAO dao = new UserDAO();
+            if (!ValidPasswords(fm))
+            {
+                errorMessage = PasswordError(fm);
+            }
+            if (!ValidEmail(fm))
+            {
+                errorMessage = "Your email address must be a valid email address.  Please check your email and try again.";
+            }
+            if (!ValidNames(fm))
+            {
+                errorMessage = "Your first and last name must each be between 1 and 25 characters long.  Please shorten any name too long.";
+            }
+            if (dao.GetUserByID(fm.ID).Email != fm.Email && IsExistingUser(fm))
+            {
+                errorMessage = "That email address already exist.  Please use another email address.";
+            }
+            return errorMessage;
         }
     }
 }
