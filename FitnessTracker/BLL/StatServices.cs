@@ -88,5 +88,25 @@ namespace BLL
             }
             return vm;
         }
+
+        public bool UpdeteWeight(StatsFM fm)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool UpdetePushupMax(StatsFM fm)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool UpdeteSitupMax(StatsFM fm)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool UpdetePullupMax(StatsFM fm)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

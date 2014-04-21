@@ -236,6 +236,10 @@
     <Content Include="Views\WorkoutPlanner\DayPlanner.cshtml" />
     <Content Include="Views\WorkoutPlanner\AddWorkout.cshtml" />
     <Content Include="Views\Stats\Index.cshtml" />
+    <Content Include="Views\Stats\UpdateWeight.cshtml" />
+    <Content Include="Views\Stats\UpdatePushupMax.cshtml" />
+    <Content Include="Views\Stats\UpdateSitupMax.cshtml" />
+    <Content Include="Views\Stats\UpdatePullupMax.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

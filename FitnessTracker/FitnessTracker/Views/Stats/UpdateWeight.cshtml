@@ -1,0 +1,35 @@
+﻿@model BLL.StatsFM
+
+@{
+    ViewBag.Title = "Update Weight";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="margin:15px;">
+    <h2>Update Weight</h2>
+
+    @ViewBag.ErrorMessage
+
+    @using (Html.BeginForm("UpdateWeight", "Stats", FormMethod.Post))
+    {
+        <div class="formField">
+            <div class="formContents">
+                Weight:
+            </div>
+            <div class="formContents">
+                @Html.TextBoxFor(m => m.Weight, new { @placeholder = "Weight (in lbs)" })
+            </div>
+        </div>
+        <div class="formField">
+            <div class="formContents">
+                Date
+            </div>
+            <div class="formContents">
+                @Html.TextBoxFor(m => m.Date, new { @placeholder = @DateTime.Now.ToString("D") })
+            </div>
+        </div>
+        <div class="formField">
+            <input type="submit" value="Update Weight" />
+        </div>
+    }
+</div>
