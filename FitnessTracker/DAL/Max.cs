@@ -9,9 +9,17 @@ namespace DAL
 {
     public class Max
     {
+        public int UserID { get; set; }
         public string Name { get; set; }
         public int Amount { get; set; }
         public DateTime Date { get; set; }
+
+        public Max(int userID, int number, DateTime date)
+        {
+            this.UserID = userID;
+            this.Amount = number;
+            this.Date = date;
+        }
 
         public Max(SqlDataReader data, string type)
         {

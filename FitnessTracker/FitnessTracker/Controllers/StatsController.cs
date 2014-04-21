@@ -34,7 +34,7 @@ namespace FitnessTracker.Controllers
         {
             fm.UserID = Convert.ToInt32(Session["UserID"]);
             StatServices log = new StatServices();
-            if (log.UpdeteWeight(fm))
+            if (fm.Weight > 0 && log.UpdeteWeight(fm))
             {
                 return RedirectToAction("Index");
             }
@@ -56,7 +56,7 @@ namespace FitnessTracker.Controllers
         {
             fm.UserID = Convert.ToInt32(Session["UserID"]);
             StatServices log = new StatServices();
-            if (log.UpdetePushupMax(fm))
+            if (fm.PushupMax > 0 && log.UpdetePushupMax(fm))
             {
                 return RedirectToAction("Index");
             }
@@ -78,7 +78,7 @@ namespace FitnessTracker.Controllers
         {
             fm.UserID = Convert.ToInt32(Session["UserID"]);
             StatServices log = new StatServices();
-            if (log.UpdeteSitupMax(fm))
+            if (fm.SitupMax > 0 && log.UpdeteSitupMax(fm))
             {
                 return RedirectToAction("Index");
             }
@@ -100,7 +100,7 @@ namespace FitnessTracker.Controllers
         {
             fm.UserID = Convert.ToInt32(Session["UserID"]);
             StatServices log = new StatServices();
-            if (log.UpdetePullupMax(fm))
+            if (fm.PullupMax > 0 && log.UpdetePullupMax(fm))
             {
                 return RedirectToAction("Index");
             }

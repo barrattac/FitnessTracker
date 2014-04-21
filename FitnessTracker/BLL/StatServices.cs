@@ -91,22 +91,48 @@ namespace BLL
 
         public bool UpdeteWeight(StatsFM fm)
         {
-            throw new NotImplementedException();
+            MaxDAO dao = new MaxDAO();
+            fm.Weight = dao.UpdateWeight(new Weight(fm.UserID, fm.Weight, fm.Date));
+            int success = dao.UpdateStats(new Max(fm.UserID, fm.Weight, fm.Date), "weight");
+            return (success > 0);
         }
 
         public bool UpdetePushupMax(StatsFM fm)
         {
-            throw new NotImplementedException();
+            MaxDAO dao = new MaxDAO();
+            fm.Weight = dao.UpdatePushupMax(ConvertStats(fm));
+            int success = dao.UpdateStats(new Max(fm.UserID, fm.Weight, fm.Date), "pushup");
+            return (success > 0);
         }
 
         public bool UpdeteSitupMax(StatsFM fm)
         {
-            throw new NotImplementedException();
+            MaxDAO dao = new MaxDAO();
+            fm.Weight = dao.UpdateSitupMax(ConvertStats(fm));
+            int success = dao.UpdateStats(new Max(fm.UserID, fm.Weight, fm.Date), "situp");
+            return (success > 0);
         }
 
         public bool UpdetePullupMax(StatsFM fm)
         {
-            throw new NotImplementedException();
+            MaxDAO dao = new MaxDAO();
+            fm.Weight = dao.UpdatePullupMax(ConvertStats(fm));
+            int success = dao.UpdateStats(new Max(fm.UserID, fm.Weight, fm.Date), "pullup");
+            return (success > 0);
+        }
+
+        private Max ConvertStats(StatsFM fm)
+        {
+            int number = fm.PushupMax;
+            if (fm.SitupMax > number)
+            {
+                number = fm.SitupMax;
+            }
+            else if (fm.PullupMax > number)
+            {
+                number = fm.PullupMax;
+            }
+            return new Max(fm.UserID, number, fm.Date);
         }
     }
 }
