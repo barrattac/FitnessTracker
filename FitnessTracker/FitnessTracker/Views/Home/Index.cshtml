@@ -6,15 +6,17 @@
 <h2>Home</h2>
 
 <p>Welcome to your Fitness Tracker.</p>
-<div>
+<div class="homePageLinks">
     <a href=@Url.Action("Index", "WorkoutPlanner", new { })>
         <img src='~/Images/FitnessIcon.png' style="height:100px;" />
-    </a>
+    </a><br />
+    @Html.ActionLink("Workout Planner", "Index", "WorkoutPlanner")
 </div>
-<div>
+<div class="homePageLinks">
     <a href=@Url.Action("Index", "Stats", new { })>
         <img src='~/Images/StatIcon.png' style="height:100px;" />
-    </a>
+    </a><br />
+    @Html.ActionLink("Stats", "Index", "Stats")
 </div>
 
 @*Add links to pages.*@

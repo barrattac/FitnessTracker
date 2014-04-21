@@ -196,3 +196,10 @@ table {
     font-weight: 700;
 }
 /*#endregion */
+
+.homePageLinks{
+    display: inline;
+    float: left;
+    margin: 15px;
+    text-align: center;
+}
