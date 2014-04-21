@@ -1,6 +1,8 @@
-﻿<div class="logo">
-    @*Add Logo Here*@
-</div>
+﻿<a href=@Url.Action("Index", "Home")>
+    <div class="logo">
+        @*Add Logo Here*@
+    </div>
+</a>
 
 <div class="navBarItems" style="min-width: 80%;">
     @if (Session["UserID"] == null)

@@ -16,6 +16,5 @@ namespace FitnessTracker.Controllers
             }
             return View();
         }
-
     }
 }
