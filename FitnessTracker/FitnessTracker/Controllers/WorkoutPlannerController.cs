@@ -72,16 +72,5 @@ namespace FitnessTracker.Controllers
             log.DeleteWorkout(workout.ID);
             return RedirectToAction("DayPlanner", workout.PlanDate);
         }
-
-        public ActionResult MarkComplete(List<WorkoutVM> workouts)
-        {
-            if (Session["UserID"] == null)
-            {
-                return RedirectToAction("Register", "Account", new { });
-            }
-            WorkoutTrackingStatus log = new WorkoutTrackingStatus();
-            log.UpdateWorkouts(workouts);
-            return RedirectToAction("Index");
-        }
     }
 }

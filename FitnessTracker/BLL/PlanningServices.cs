@@ -64,6 +64,7 @@ namespace BLL
                 workout.PlanDate = date;
                 vm.Add(workout);
             }
+            
             return vm;
         }
 
