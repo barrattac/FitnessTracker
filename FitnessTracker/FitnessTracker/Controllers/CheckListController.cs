@@ -9,14 +9,19 @@ namespace FitnessTracker.Controllers
 {
     public class CheckListController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(DateTime? date)
         {
             if (Session["UserID"] == null)
             {
                 return RedirectToAction("Register", "Account", new { });
             }
+            DateTime now = DateTime.Now.Date;
             PlanningServices log = new PlanningServices();
-            return View(log.GetWorkoutPlan(Convert.ToInt32(Session["UserID"]), DateTime.Now.Date));
+            if (date != null)
+            {
+                now = Convert.ToDateTime(date);
+            }
+            return View(log.GetWorkoutPlan(Convert.ToInt32(Session["UserID"]), now));
         }
 
         public ActionResult MarkComplete(List<WorkoutVM> workouts)

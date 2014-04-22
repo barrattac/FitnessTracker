@@ -26,5 +26,5 @@ else
     @Html.ActionLink("Back to Month", "ChangeMonth", Model[0].PlanDate)
 </div>
 <div>
-    @Html.ActionLink("Mark Completed Workouts", "Index", "CheckList", new { }, new { })
+    @Html.ActionLink("Mark Completed Workouts", "Index", "CheckList", Model[0].PlanDate, new { })
 </div>
