@@ -42,6 +42,7 @@
     <Compile Include="AccountServices.cs" />
     <Compile Include="ExerciseFM.cs" />
     <Compile Include="ExerciseVM.cs" />
+    <Compile Include="GoalFM.cs" />
     <Compile Include="Graph.cs" />
     <Compile Include="Graphs.cs" />
     <Compile Include="MaxVM.cs" />
