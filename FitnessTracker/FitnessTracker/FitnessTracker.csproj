@@ -132,6 +132,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CheckListController.cs" />
+    <Compile Include="Controllers\GoalsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StatsController.cs" />
     <Compile Include="Controllers\WorkoutPlannerController.cs" />
@@ -203,6 +204,7 @@
     <Content Include="Images\CheckListIcon.png" />
     <Content Include="Images\FitnessIcon.png" />
     <Content Include="Images\Forward.png" />
+    <Content Include="Images\GoalIcon.png" />
     <Content Include="Images\logo.jpg" />
     <Content Include="Images\SettingIcon.png" />
     <Content Include="Images\StatIcon.png" />

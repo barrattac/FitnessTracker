@@ -25,6 +25,12 @@
     @Html.ActionLink("Checklist", "Index", "CheckList")
 </div>
 <div class="homePageLinks">
+    <a href=@Url.Action("Index", "Goals", new { })>
+        <img src='~/Images/GoalIcon.png' style="height:100px;" />
+    </a><br />
+    @Html.ActionLink("Goals", "Index", "Goals")
+</div>
+<div class="homePageLinks">
     <a href=@Url.Action("UpdateUserInfo", "Account", new { })>
         <img src='~/Images/SettingIcon.png' style="height:100px;" />
     </a><br />
